@@ -1,11 +1,11 @@
 ## 목차
 
-* [Basic CSS](#Basic%20CSS)
+* [Basic CSS](#Basic-CSS)
     * [CSS란?](#CSS란?)
-    * [CSS가 제어하는 항목](#CSS가%20제어하는%20항목)
-    * [CSS를 적용하는 방법](#CSS를%20적용하는%20방법)
+    * [CSS가 제어하는 항목](#CSS가-제어하는-항목)
+    * [CSS를 적용하는 방법](#CSS를-적용하는-방법)
     * [배우기](#배우기)
-        * [Change the Color of Text](#Change%20the%20Color%20of%20Text)
+        * [Change the Color of Text](#Change-the-Color-of-Text)
 
 
 
