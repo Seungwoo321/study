@@ -1,5 +1,7 @@
-## 목차
 
+# Responsive Web Design Certification (300 hours)
+
+## 목차
 
 * [Basic CSS](#basic-css)
     * [CSS란?](#css란)
@@ -8,7 +10,7 @@
     * [배우기](#배우기)
         * [Change the Color of Text](#change-the-color-of-text)
         * [Use CSS Selectors to Style Elements](#use-css-selectors-to-style-elements)
-
+        * [Use a CSS Class to Style an Element](#use-a-css-class-to-style-an-element)
 
 
 
@@ -45,9 +47,13 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 ```html
 <h2 style="color: blue;"> Cat Photo App </h2>
 ```
-* 코드 위에 `style` 블록을 만들고 `CSS 선택기`를 사용 해서 `h2` 요소에 스타일을 적용 할 수 있다.
+
+
+### Use CSS Selectors to Style Elements
+
 * 인라인 스타일 보다 더 좋은 방법이다.
-* 중괄호 안에 작성하고 세미콜론을 추가하자
+* 코드 위에 `style` 블록을 만들고 `CSS 선택기`를 사용 해서 `h2` 요소에 스타일을 적용 한다.
+* 중괄호 안에 작성하고 세미콜론을 추가하자.
 
 ```html
 <style>
@@ -57,8 +63,20 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 </style>
 ```
 
+### Use a CSS Class to Style an Element
 
-### Use CSS Selectors to Style Elements
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
