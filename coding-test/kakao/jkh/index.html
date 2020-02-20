@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- library -->
+    <script src="./library/babel-polyfill.js"></script>
+    <script src="./library/polyfill.js"></script>
+    <script src="./library/moment.js"></script>
+    <script>
+        moment.locale('ko')
+    </script>
+    <!-- util -->
+    <script src="./constants/const.js"></script>
+    <script src="./util/ElevatorUtil.js"></script>
+    <script src="./util/RenderUtil.js"></script>
+    <!-- js -->
+    <script src="./js/ElevatorController.js"></script>
+    <script src="./js/RenderController.js"></script>
+</head>
+
+<body>
+    <h2>엘레베이터</h2>
+    <div class="inputView">
+        층: <input type="text" id="inputFloorSize"> 엘레베이터 : <input type="text" id="inputElevatorSize"> <button onClick="startElevator('inputFloorSize','inputElevatorSize')">확인</button>
+    </div>
+    <div class="mainContainer">
+        <div id="floorButtonContainer" class="floorButtonContainer">버튼 영역</div>
+        <div id="elevatorContainer" class="elevatorContainer">
+            <div class="elevatorLine">
+                엘레베이터 영역
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/Main.js"></script>
+
+</html>

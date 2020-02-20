@@ -1,0 +1,7 @@
+spring:
+  datasource :
+    initialize: true
+    url: jdbc:awsathena://AwsRegion=ap-northeast-1;S3OutputLocation=s3://mz.reserved
+    username: AKIAJQBW6QKHCKT2WNOQ
+    password: wZIX7rUbP0ZKNSNbjy7RydVS7OnbkZcrFkwH3vvJ
+    driver-class-name: com.simba.athena.jdbc42.Driver

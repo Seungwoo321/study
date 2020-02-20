@@ -1,0 +1,79 @@
+div.mainContainer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+div.floorButtonContainer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    max-width: 100px;
+    padding: 5px;
+    border: 1px solid #000000;
+    flex: 1;
+    height: calc(100% - 100px);
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+div.floorButton {
+    flex: 1
+}
+
+button.floorButton {
+    width: 100%;
+}
+
+button.floorButton.on {
+    color: #DF1111
+}
+
+div.elevatorContainer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    border: 1px solid #000000;
+    flex: 3;
+    height: calc(100% - 100px);
+    box-sizing: border-box;
+}
+
+div.elevatorLine {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+div.elevator {
+    position: absolute;
+    border: 3px solid #1428a3;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 1s;
+}
+
+div.elevator.on {
+    border: 3px solid #DF1111;
+}
+
+div.inputView {
+    padding: 10px;
+}
+
+input {
+    text-align: right;
+}

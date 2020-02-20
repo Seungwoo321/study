@@ -1,0 +1,62 @@
+<template>
+    <div>
+        <section>
+            <user-profile :info="fetchedItem">
+                <router-link :to="`/user/` + fetchedItem.user" slot="username">
+                    {{ fetchedItem.user }}
+                </router-link>
+                <template slot="time">
+                    {{ 'Posted ' + fetchedItem.time_ago }}
+                </template>
+            </user-profile>
+        </section>
+        <section>
+            <h2>
+                {{ fetchedItem.title }}
+            </h2>
+        </section>
+        <section>
+            <!-- 질문 댓글 -->
+            <div v-html="fetchedItem.content"></div>
+        </section>
+    </div>
+</template>
+
+<script>
+import UserProfile from '@/components/UserProfile.vue'
+import { mapGetters, mapActions } from 'vuex'
+export default {
+    components: {
+        UserProfile
+    },
+    computed: {
+        ...mapGetters(['fetchedItem'])
+    },
+    created () {
+        const itemId = this.$route.query.id
+        this.FETCH_COMMENT_ITEM(itemId)
+    },
+    methods: {
+        ...mapActions({
+            FETCH_COMMENT_ITEM: 'FETCH_COMMENT_ITEM'
+        })
+    }
+}
+</script>
+
+<style scoped>
+.user-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+.fa-user {
+    font-size: 2.5rem;
+}
+.user-description {
+    padding-left: 8px;
+}
+.time {
+    font-size: 0.7rem;
+}
+</style>

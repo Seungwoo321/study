@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <svg width="100%" height="100%">
+      <geo-path :passed-data=dataObject.graticulePath.d :class="dataObject.graticulePath.class"></geo-path>
+      <geo-path :passed-data=dataObject.mapPath.d></geo-path>
+      <circle-group :style=dataObject.circleGroup.style 
+          :passed-data=dataObject.circleGroup.d 
+          :passed-radius=dataObject.circleGroup.r 
+          :passed-cx=dataObject.circleGroup.cx 
+          :passed-cy=dataObject.circleGroup.cy
+          :passed-visibility=dataObject.circleGroup.visibility>
+      </circle-group>
+    </svg>
+  </div>
+<style>
+#app {
+  width: 900px;
+  height: 900px;
+}
+path {
+  fill: grey;
+  stroke: white;
+  stroke-width: .5px;
+}
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+</style>
+<script>
+
+// CircleGroup Component
+const circleGroup = Vue.component('circle-group', {
+  render: function(createElement){
+    if (this.passedData.length) {
+      return createElement('g', this.passedData.map((item, index) => {
+        return createElement('circle', {
+          style: this.style,
+          attrs: {
+            d: item.cost,
+            r: this.passedRadius[index],
+            cx: this.passedCx[index],
+            cy: this.passedCy[index],
+            visibility: this.passedVisibility[index]
+          }            
+        })
+      }))
+    }
+  },
+  props: {
+    passedRadius: {
+      type: Array,
+      required: true
+    },
+    passedData: {
+      type: Array,
+      required: true
+    },
+    passedCx: {
+      type: Array,
+      required: true
+    },
+    passedCy: {
+      type: Array,
+      required: true
+    },
+    passedVisibility: {
+      type: Array
+    }
+  }
+})
+
+// gepPath Component
+const geoPath = Vue.component('geo-path', {
+  render: function(createElement){
+    return createElement(
+      'path', 
+      {
+        attrs: {
+          d : this.passedData
+        },
+      }
+    )
+  },
+  props: {
+    passedData: {
+      type: String,
+      required: true
+    }
+  }
+})
+
+// main component
+new Vue({
+  el: '#app',
+  components: {
+    'circle-group': circleGroup,
+    'geo-path': geoPath,
+    'circle-group': circleGroup
+  },
+  data () {
+    return {
+      dataObject: {
+        graticulePath: {
+          d: '',
+          class: 'graticule'
+        },
+        mapPath: {
+          d: ''
+        },
+        circleGroup: {
+          d: [],
+          r: [],
+          cx: [],
+          cy: [],
+          style: {
+            'fill': 'rgb(79, 195, 247)',
+            'fill-opacity': '.6'
+          },
+          visibility : []
+        }
+      },
+      initLongitude: -130,
+      changedLongitude: -130,
+      tooltipMessage: '',
+      geojson: {},
+      regions: [ { "region": { "name": "Tokyo", "code": "ap-northeast-1", "coordinates": { "latitude": 35.65, "longitude": 139.83 } }, "cost": 106963.94 }, { "region": { "name": "Seoul", "code": "ap-northeast-2", "coordinates": { "latitude": 37.53, "longitude": 127.02 } }, "cost": 47615.66 }, { "region": { "name": "Global", "code": "Global" }, "cost": 11497.04 }, { "region": { "name": "Oregon", "code": "us-west-2", "coordinates": { "latitude": 44.18, "longitude": -124.11 } }, "cost": 10888.17 }, { "region": { "name": "Asia Pacific CDN", "code": "ap-southeast-1", "coordinates": { "latitude": 1.29, "longitude": 103.85 } }, "cost": 5979.05 }, { "region": { "name": "Virginia", "code": "us-east-1", "coordinates": { "latitude": 37.92, "longitude": -78.02 } }, "cost": 5507.84 }, { "region": { "name": "Singapore", "code": "ap-southeast-1", "coordinates": { "latitude": 1.29, "longitude": 103.85 } }, "cost": 1625.41 }, { "region": { "name": "Ireland", "code": "eu-west-1", "flag": "ie.png", "coordinates": { "latitude": 53.35, "longitude": -6.26 } }, "cost": 1291.473310566382 }, { "region": { "name": "Frankfurt", "code": "eu-central-1", "coordinates": { "latitude": 50.11, "longitude": 8.68 } }, "cost": 498.99 }, { "region": { "name": "Mumbai", "code": "ap-south-1", "coordinates": { "latitude": 19.22, "longitude": 72.85 } }, "cost": 234.71 }, { "region": { "name": "Japan CDN", "code": "ap-northeast-1", "coordinates": { "latitude": 34.65, "longitude": 135.5 } }, "cost": 215.59 }, { "region": { "name": "Sydney", "code": "ap-southeast-2", "coordinates": { "latitude": -33.87, "longitude": 151.2 } }, "cost": 78.85 }, { "region": { "name": "Ohio", "code": "us-east-1", "coordinates": { "latitude": 40.36, "longitude": -82.99 } }, "cost": 58.42 }, { "region": { "name": "United States CDN", "code": "ap-southeast-1", "coordinates": { "latitude": 39.02, "longitude": -76.92 } }, "cost": 53.75 }, { "region": { "name": "São Paulo", "code": "sa-east-1", "coordinates": { "latitude": -23.53, "longitude": -46.62 } }, "cost": 21.45 }, { "region": { "name": "Australia CDN", "code": "ap-southeast-2", "coordinates": { "latitude": -33.87, "longitude": 151.2 } }, "cost": 13.10 }, { "region": { "name": "South America CDN", "code": "sa-east-1", "coordinates": { "latitude": -23.53, "longitude": -46.62 } }, "cost": 12.61 }, { "region": { "name": "India CDN", "code": "ap-south-1", "coordinates": { "latitude": 19.22, "longitude": 72.85 } }, "cost": 7.57 }, { "region": { "name": "Canada CDN", "code": "sa-east-1", "coordinates": { "latitude": 56.13, "longitude": -106.34 } }, "cost": 2.93 }, { "region": { "name": "London", "code": "eu-west-2", "coordinates": { "latitude": 51.5, "longitude": -0.11 } }, "cost": 0.01 }, { "region": { "name": "Paris", "code": "eu-west-3", "coordinates": { "latitude": 48.86, "longitude": 2.34 } }, "cost": 0.01 }, { "region": { "name": "Canada", "code": "ca-central-1", "coordinates": { "latitude": 56.13, "longitude": -106.34 } }, "cost": 0.01 }, { "region": { "name": "California", "code": "us-west-1", "coordinates": { "latitude": 36.77, "longitude": -119.41 } }, "cost": -30.40 } ],
+      costs: []
+    }
+  },
+  mounted () {
+		axios.get('https://s3.ap-northeast-2.amazonaws.com/swlee-recipe/geojson.json')
+    .then(res => {
+    	this.geojson = res.data
+      this.dataObject.circleGroup.d = this.regions.filter(item => {if (item.region.code !== 'Global') return item.region.coordinates})
+      this.costs = this.regions.map(item => item.cost)
+    	this.drawChart()
+      window.addEventListener('resize', this.drawChart)
+    })
+    .catch(err => {
+    	console.log(err)
+    })
+  },
+  computed: {
+    initWidth: () => {
+      return d3.select('svg').node().getBoundingClientRect().width
+    },
+    initHeight: () => {
+      return d3.select('svg').node().getBoundingClientRect().height
+    }
+  },
+  methods: {
+    render(projection) {
+      const path = d3.geoPath().projection(projection)
+      const graticule = d3.geoGraticule()
+
+      // path data 
+      this.dataObject.graticulePath.d = path(graticule())
+      this.dataObject.mapPath.d = path(this.geojson)
+
+      // circle data 
+      this.dataObject.circleGroup.cx = this.dataObject.circleGroup.d.map(d => projection([d.region.coordinates.longitude, d.region.coordinates.latitude])[0])
+      this.dataObject.circleGroup.cy = this.dataObject.circleGroup.d.map(d => projection([d.region.coordinates.longitude, d.region.coordinates.latitude])[1])
+      this.dataObject.circleGroup.r = this.dataObject.circleGroup.d.map(d => (((d.cost / d3.max(this.costs) * 15)  + 5) * 2).toFixed(2))
+      this.dataObject.circleGroup.visibility = this.dataObject.circleGroup.d.map(d => {
+        const mlon = (d.region.coordinates.longitude % 360) + this.changedLongitude
+        if (mlon > -90 && mlon < 90) return 'visible'
+        else return 'hidden'
+      })
+    },
+    drawChart() {    
+      const svg = d3.select('svg')
+      const projection = d3.geoOrthographic()
+        .scale(this.initWidth / Math.PI)
+        .translate([this.initWidth / 2, this.initHeight / 2])
+        .rotate([this.initLongitude, -20, -23.44])
+        .clipAngle(90)
+      
+      this.render(projection)
+      let rotate0, coords0;
+      const coords = () => projection.rotate(rotate0)
+        .invert([d3.event.x, d3.event.y]);
+      
+      svg.call(d3.drag()
+        .on('start', () => {
+          rotate0 = projection.rotate();
+          coords0 = coords();
+        })
+        .on('drag', () => {
+          const coords1 = coords()
+          this.changedLongitude = rotate0[0]
+          projection.rotate([
+            rotate0[0] + coords1[0] - coords0[0],
+            rotate0[1] + coords1[1] - coords0[1],
+          ])
+          this.render(projection)
+        })
+        // .filter(() => !(d3.event.touches && d3.event.touches.length === 2))
+      )
+
+		}
+  }
+})
+
+
+
+</script>
+</body>
+
+</html>

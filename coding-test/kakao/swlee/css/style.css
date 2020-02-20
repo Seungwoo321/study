@@ -1,0 +1,46 @@
+nav {
+  display: block;
+}
+
+div {
+  padding : 3px;
+  border: 1px solid;
+}
+.floor {
+  display: flex;
+  height: 200px;
+}
+.wall {
+
+
+}
+
+
+/*
+  button
+*/
+.container-between {
+  display: flex;
+  flex-direction: column;
+  -webkit-justify-content: center;
+}
+
+
+/*
+  elevator
+*/
+
+.container {
+  -webkit-flex: 1;
+  flex:1;
+}
+
+.elevator {
+  /*display: inline-block;*/
+  height: 150px;
+
+  -webkit-flex: 1;
+  flex:1;
+  padding :10px;
+  margin : 10px;
+}

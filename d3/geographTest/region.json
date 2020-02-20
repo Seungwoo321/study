@@ -1,0 +1,167 @@
+[
+  {
+    "region": {
+      "name": "Tokyo",
+      "latLng": [
+        35.5,
+        139.5
+      ],
+      "code": "ap-northeast-1"
+    },
+    "cost": 94225
+  },
+  {
+    "region": {
+      "name": "Seoul",
+      "latLng": [
+        38,
+        127
+      ],
+      "code": "ap-northeast-2"
+    },
+    "cost": 42390
+  },
+  {
+    "region": {
+      "name": "Oregon",
+      "latLng": [
+        45,
+        -123
+      ],
+      "code": "us-west-2"
+    },
+    "cost": 9783
+  },
+  {
+    "region": {
+      "name": "Virginia",
+      "latLng": [
+        33,
+        -76
+      ],
+      "code": "us-east-1"
+    },
+    "cost": 5066
+  },
+  {
+    "region": {
+      "name": "Singapore",
+      "latLng": [
+        1,
+        103
+      ],
+      "code": "ap-southeast-1"
+    },
+    "cost": 1471
+  },
+  {
+    "region": {
+      "name": "Ireland",
+      "latLng": [
+        53,
+        -10
+      ],
+      "code": "eu-west-1"
+    },
+    "cost": 1135
+  },
+  {
+    "region": {
+      "name": "Frankfurt",
+      "latLng": [
+        50,
+        8
+      ],
+      "code": "eu-central-1"
+    },
+    "cost": 445
+  },
+  {
+    "region": {
+      "name": "Mumbai",
+      "latLng": [
+        19,
+        72
+      ],
+      "code": "ap-south-1"
+    },
+    "cost": 205
+  },
+  {
+    "region": {
+      "name": "Sydney",
+      "latLng": [
+        -33,
+        151
+      ],
+      "code": "ap-southeast-2"
+    },
+    "cost": 70
+  },
+  {
+    "region": {
+      "name": "Ohio",
+      "latLng": [
+        40.367474,
+        -82.996216
+      ],
+      "code": "us-east-1"
+    },
+    "cost": 51
+  },
+  {
+    "region": {
+      "name": "São Paulo",
+      "latLng": [
+        -23,
+        -46
+      ],
+      "code": "sa-east-1"
+    },
+    "cost": 18
+  },
+  {
+    "region": {
+      "name": "Paris",
+      "latLng": [
+        48.864716,
+        2.349014
+      ],
+      "code": "eu-west-3"
+    },
+    "cost": 0
+  },
+  {
+    "region": {
+      "name": "London",
+      "latLng": [
+        51,
+        0
+      ],
+      "code": "eu-west-2"
+    },
+    "cost": 0
+  },
+  {
+    "region": {
+      "name": "Canada",
+      "latLng": [
+        45,
+        -73
+      ],
+      "code": "ca-central-1"
+    },
+    "cost": 0
+  },
+  {
+    "region": {
+      "name": "California",
+      "latLng": [
+        39,
+        -122
+      ],
+      "code": "us-west-1"
+    },
+    "cost": -11
+  }
+]

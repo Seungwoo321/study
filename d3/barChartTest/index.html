@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <svg style="width:100%;height:100%"></svg>
+  </div>
+  <style>
+    #app {
+      margin: 20px 20px 20px 20px;
+      padding: 20px 20px 20px 20px;
+      width: 800px;
+      height: 500px;
+    }
+
+    .bar {
+      fill: rgba(126, 87, 194, 0.8)
+    }
+
+    .bar:hover {
+      fill: rgba(213, 0, 249, 0.8)
+    }
+
+    .axis-x path {
+      display: none;
+    }
+
+    .tooltip {
+      line-height: 1;
+      padding: 12px;
+      color: rgb(185, 185, 185);
+      background: rgba(0, 0, 0, 0.8);
+      box-sizing: border-box;
+      display: inline;
+      font-size: 14px;
+      position: absolute;
+      text-align: center;
+      border-radius: 8px;
+    }
+  </style>
+  <script>
+    const data = [{
+        month: '2018-01',
+        cost: 5464315
+      },
+      {
+        month: '2018-02',
+        cost: 42316589
+      },
+      {
+        month: '2018-03',
+        cost: 898655
+      },
+      {
+        month: '2018-04',
+        cost: 54000000
+      },
+      {
+        month: '2018-05',
+        cost: 423165
+      },
+      {
+        month: '2018-06',
+        cost: 1234555
+      }
+    ]
+
+    let margin = {
+      top: 100,
+      right: 20,
+      bottom: 30,
+      left: 40
+    }
+    let svg = d3.select('svg')
+    let x = d3.scaleBand().padding(0.1)
+    let y = d3.scaleLinear()
+    let g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`)        
+
+    g.append('g')
+      .attr('class', 'axis axis-x')
+
+    x.domain(data.map(d => d.month))
+    y.domain([0, d3.max(data, d => d.cost)])
+
+
+    function draw() {
+      let bounds = svg.node().getBoundingClientRect()
+      let width = bounds.width - margin.left - margin.right
+      let height = bounds.height - margin.top - margin.bottom
+
+      x.rangeRound([0, width])
+      y.rangeRound([height, 0])
+
+      g.select('.axis-x') 
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(x))
+
+      let tooltip = {
+        div: d3.select('body').append('div').attr('class', 'tooltip').style('opacity', 0),
+        show: (d) => {
+          tooltip.div.html(`${d.month} :$${d.cost}`)
+            .style('left', `${d3.event.pageX}px`)
+            .style('top', `${d3.event.pageY-28}px`)
+          tooltip.div.transition()
+            .duration(200)
+            .style('opacity', 9)
+        },
+        hide: () => {
+          tooltip.div.transition()
+            .duration(500)
+            .style('opacity', 0)
+        }
+      }
+
+
+
+      let bars = g.selectAll('.bar')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('x', d => x(d.month))
+        .attr('y', d => y(d.cost))
+        .attr('width', x.bandwidth())
+        .attr('height', d => height - y(d.cost))
+        .on('mouseover', d => tooltip.show(d))
+        .on('mouseout', d => tooltip.hide(d))
+        .on('touchstart', d => tooltip.show(d))
+
+      bars.exit()
+          .remove();        
+
+    }
+    draw()
+    window.addEventListener('resize', draw)
+  </script>
+
+</body>
+
+</html>

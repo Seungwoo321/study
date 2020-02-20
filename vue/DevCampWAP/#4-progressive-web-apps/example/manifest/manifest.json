@@ -1,0 +1,13 @@
+{
+    "short_name": "pwa-demo",
+    "name": "This web site is for pwa demo",
+    "start_url": "./",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "./images/marvel.jpeg",
+            "type": "image/jpeg",
+            "sizes": "192x192"
+        }
+    ]
+}

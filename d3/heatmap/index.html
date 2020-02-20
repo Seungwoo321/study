@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <svg width="100%" height="450px"></svg>
+  </div>
+  <style>
+      rect.bordered {
+        stroke: #E6E6E6;
+        stroke-width:2px;   
+      }
+
+      text {
+        font-size: 12pt;
+        font-family: Consolas, courier;
+        fill: #ffffff;
+      }
+      text.label {
+        fill: #000
+      }
+      text.axis-workweek {
+        fill: #000;
+      }
+
+      text.axis-worktime {
+        fill: #000;
+      }    
+  </style>
+  <script>
+
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          title: 'test',
+          // weeks: [ { "weeks": "22_2018-05-28", "daily": "1_2018-05-28", "cost": 7719.947073570842 }, { "weeks": "22_2018-05-28", "daily": "2_2018-05-29", "cost": 7663.828010158294 }, { "weeks": "22_2018-05-28", "daily": "3_2018-05-30", "cost": 7856.869936725606 }, { "weeks": "22_2018-05-28", "daily": "4_2018-05-31", "cost": 7777.066259966488 }, { "weeks": "22_2018-05-28", "daily": "5_2018-06-01", "cost": 25803.769271896486 }, { "weeks": "22_2018-05-28", "daily": "6_2018-06-02", "cost": 7855.526100485282 }, { "weeks": "22_2018-05-28", "daily": "7_2018-06-03", "cost": 7849.797814788929 }, { "weeks": "23_2018-06-04", "daily": "1_2018-06-04", "cost": 8055.262047724067 }, { "weeks": "23_2018-06-04", "daily": "2_2018-06-05", "cost": 8006.9441575977435 }, { "weeks": "23_2018-06-04", "daily": "3_2018-06-06", "cost": 7905.31267447766 }, { "weeks": "23_2018-06-04", "daily": "4_2018-06-07", "cost": 8053.804276158399 }, { "weeks": "23_2018-06-04", "daily": "5_2018-06-08", "cost": 7907.704454853456 }, { "weeks": "23_2018-06-04", "daily": "6_2018-06-09", "cost": 8129.945841090275 }, { "weeks": "23_2018-06-04", "daily": "7_2018-06-10", "cost": 7669.918322280041 }, { "weeks": "24_2018-06-11", "daily": "1_2018-06-11", "cost": 7940.004866375171 }, { "weeks": "24_2018-06-11", "daily": "2_2018-06-12", "cost": 8306.709353029506 }, { "weeks": "24_2018-06-11", "daily": "3_2018-06-13", "cost": 7918.17326290536 }, { "weeks": "24_2018-06-11", "daily": "4_2018-06-14", "cost": 8101.921384498108 }, { "weeks": "24_2018-06-11", "daily": "5_2018-06-15", "cost": 8776.383968346567 }, { "weeks": "24_2018-06-11", "daily": "6_2018-06-16", "cost": 7761.532677456438 }, { "weeks": "24_2018-06-11", "daily": "7_2018-06-17", "cost": 7639.862781369344 }, { "weeks": "25_2018-06-18", "daily": "1_2018-06-18", "cost": 7771.067285819315 }, { "weeks": "25_2018-06-18", "daily": "2_2018-06-19", "cost": 7914.7284849487005 }, { "weeks": "25_2018-06-18", "daily": "3_2018-06-20", "cost": 8101.493045879916 }, { "weeks": "25_2018-06-18", "daily": "4_2018-06-21", "cost": 8193.670832521508 }, { "weeks": "25_2018-06-18", "daily": "5_2018-06-22", "cost": 7982.68720949958 }, { "weeks": "25_2018-06-18", "daily": "6_2018-06-23", "cost": 7531.017920401129 }, { "weeks": "25_2018-06-18", "daily": "7_2018-06-24", "cost": 7607.934137644776 }, { "weeks": "26_2018-06-25", "daily": "1_2018-06-25", "cost": 8373.27763701615 }, { "weeks": "26_2018-06-25", "daily": "2_2018-06-26", "cost": 8392.399808044738 }, { "weeks": "26_2018-06-25", "daily": "3_2018-06-27", "cost": 8598.70952937584 }, { "weeks": "26_2018-06-25", "daily": "4_2018-06-28", "cost": 8232.491292580846 }, { "weeks": "26_2018-06-25", "daily": "5_2018-06-29", "cost": 7908.894638680988 }, { "weeks": "26_2018-06-25", "daily": "6_2018-06-30", "cost": 7818.817190890765 }, { "weeks": "26_2018-06-25", "daily": "7_2018-07-01", "cost": 25953.249008801246 }, { "weeks": "27_2018-07-02", "daily": "1_2018-07-02", "cost": 8827.12923221936 }, { "weeks": "27_2018-07-02", "daily": "2_2018-07-03", "cost": 2534.655755029626 } ]
+          weeks: [ { "weeks": "22_2018-05-28", "days": [ { "daily": "1_2018-05-28", "cost": 7719.94707357083 }, { "daily": "2_2018-05-29", "cost": 7663.828010158286 }, { "daily": "3_2018-05-30", "cost": 7856.8699367256195 }, { "daily": "4_2018-05-31", "cost": 7777.066259966478 }, { "daily": "5_2018-06-01", "cost": 25803.769271896526 }, { "daily": "6_2018-06-02", "cost": 7855.526100485278 }, { "daily": "7_2018-06-03", "cost": 7849.797814788937 } ] }, { "weeks": "23_2018-06-04", "days": [ { "daily": "1_2018-06-04", "cost": 8055.262047724038 }, { "daily": "2_2018-06-05", "cost": 8006.944157597733 }, { "daily": "3_2018-06-06", "cost": 7905.312674477648 }, { "daily": "4_2018-06-07", "cost": 8053.80427615839 }, { "daily": "5_2018-06-08", "cost": 7907.70445485345 }, { "daily": "6_2018-06-09", "cost": 8129.945841090261 }, { "daily": "7_2018-06-10", "cost": 7669.9183222800575 } ] }, { "weeks": "24_2018-06-11", "days": [ { "daily": "1_2018-06-11", "cost": 7940.004866375162 }, { "daily": "2_2018-06-12", "cost": 8306.70935302951 }, { "daily": "3_2018-06-13", "cost": 7918.173262905383 }, { "daily": "4_2018-06-14", "cost": 8101.921384498107 }, { "daily": "5_2018-06-15", "cost": 8776.383968346538 }, { "daily": "6_2018-06-16", "cost": 7761.532677456419 }, { "daily": "7_2018-06-17", "cost": 7639.862781369327 } ] }, { "weeks": "25_2018-06-18", "days": [ { "daily": "1_2018-06-18", "cost": 7771.067285819319 }, { "daily": "2_2018-06-19", "cost": 7914.728484948702 }, { "daily": "3_2018-06-20", "cost": 8101.493045879917 }, { "daily": "4_2018-06-21", "cost": 8193.670832521506 }, { "daily": "5_2018-06-22", "cost": 7982.687209499569 }, { "daily": "6_2018-06-23", "cost": 7531.017920401138 }, { "daily": "7_2018-06-24", "cost": 7607.934137644761 } ] }, { "weeks": "26_2018-06-25", "days": [ { "daily": "1_2018-06-25", "cost": 8373.277637016154 }, { "daily": "2_2018-06-26", "cost": 8392.399808044729 }, { "daily": "3_2018-06-27", "cost": 8598.709529375845 }, { "daily": "4_2018-06-28", "cost": 8232.491292580838 }, { "daily": "5_2018-06-29", "cost": 7908.894638680979 }, { "daily": "6_2018-06-30", "cost": 7818.817190890737 }, { "daily": "7_2018-07-01", "cost": 25953.249008801242 } ] }, { "weeks": "27_2018-07-02", "days": [ { "daily": "1_2018-07-02", "cost": 8827.129232219355 }, { "daily": "2_2018-07-03", "cost": 2534.655755029626 } ] } ]
+        }
+      },
+      created () {
+        this.drawChart()
+        window.addEventListener('resize', this.drawChart)
+      },
+      methods: {
+        drawChart () {
+          const data = this.weeks
+          const margin = {
+            top: 50,
+            right: 50,
+            bottom: 100,
+            left: 50
+          }
+          const svg = d3.select('svg')
+          const bounds = svg.node().getBoundingClientRect()
+          const width = bounds.width - margin.left - margin.right
+          const height = bounds.height - margin.top - margin.bottom
+          const days = ["M", "T", "W", "R", "F", "S", "S"]
+          const gridSize = {
+            width: Math.floor(width / (days.length + 1)),
+            height: Math.floor(height / (data.length))
+          }
+          const weeksLabelSize = 120
+          const colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"]
+          const weeks = data.map(item => {
+            return `${item.weeks.substring(0, 2)}주 \n ${item.weeks.substring(8, 13)}~`
+          })
+
+          const g = svg.append('g')
+          .attr('transform', `translate(${weeksLabelSize}, ${margin.top})`)
+
+          g.selectAll('.weeksLabel')
+          .data(weeks).enter()
+          .append('rect')
+          .attr('class','bordered')
+          .attr('x', -weeksLabelSize)
+          .attr('y', (d, i) => i * gridSize.height)
+          .attr('fill', '#ddd')
+          .attr('width', weeksLabelSize)
+          .attr('height', gridSize.height)
+          
+           g.selectAll('.weeksLabel')
+            .data(weeks).enter()
+            .append('text')
+            .attr('class','label')
+            .attr('x', -weeksLabelSize+10)
+            .attr('y', (d, i) => i * gridSize.height + 30)
+            .text(d => d)
+
+
+          g.selectAll('.dayLabe')
+            .data(days).enter()
+            .append('rect')
+            .attr('class', 'bordered')
+            .attr('fill', '#ddd')
+            .attr('x', (d, i) => i * gridSize.width)
+            .attr('y', -gridSize.height/2)
+            .attr('width', gridSize.width)
+            .attr('height', gridSize.height/2)
+
+          g.selectAll('.dayLabe')
+          .data(days).enter()
+          .append('text')
+          .attr('class', 'label')
+          .text(d => d)
+          .attr('x', (d, i) => i * gridSize.width + gridSize.width/2)
+          .attr('y', -gridSize.height / 6)
+
+          let allDays = []
+          data.map(item => {
+            allDays = allDays.concat(item.days)
+          })
+
+          const colorScale = d3.scaleQuantile()
+          .domain([0, colors.length-1, d3.max(allDays, d => d.cost)])
+          .range(colors)
+
+          const cards = g.selectAll('.day').data(allDays)
+
+          cards.append('title').append('i')
+
+          cards.enter().append('rect')
+          .attr('x', (d,i) => {
+            return (d.daily.substring(0, 1) -1) * gridSize.width
+          })
+          .attr('y', (d,i) => {
+            return Math.floor(i / days.length) * gridSize.height
+          })
+          .attr('class', 'day bordered')
+          .attr('width', gridSize.width)
+          .attr('height', gridSize.height)
+          .style('fill', d => colorScale(d.cost))
+
+          g.selectAll('day').data(allDays).enter().append('i').attr('class', 'material-icons').text('monetization_on')
+            .attr('x', (d, i) => {
+              return (d.daily.substring(0, 1) - 1) * gridSize.width + 100
+            })
+            .attr('y', (d, i) => {
+              console.log((Math.floor(i / days.length)) * gridSize.height)
+              return Math.floor(i / days.length + 1) * gridSize.height - 4
+            })          
+            .attr('fill', '#fff')
+
+          cards.enter().data(allDays)
+          .append('text')
+          .text(d => {
+            return d.daily.substring(10, 12)
+          })
+          .attr('x', (d,i) => {
+            return (d.daily.substring(0, 1) -1) * gridSize.width + 4
+          })
+          .attr('y', (d,i) => {
+            console.log((Math.floor(i / days.length)) * gridSize.height)
+            return Math.floor(i / days.length+1) * gridSize.height - 4
+          })
+          .attr('fill', '#fff')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h3>Firebase Auth Sample</h3>
+    </header>
+    <form>
+        <div>
+            <label for="email">Email : </label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label for="password">Password : </label>
+            <input type="password" name="password">
+        </div>
+        <button type="button" id="authLoginBtn">Login</button>
+        <button type="button" id="authGoogleLoginBtn">Login with Google</button>
+        <button type="button" id="signUpBtn">Sign up</button>
+        <button type="button" id="signOutBtn">Sign Out</button>
+    </form>
+    <section>
+        <p>Login Please</p>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCNHtsFGFUG_zv9qJbHn9sGLBsCHR2VeGA",
+            authDomain: "fir-demo-2fc18.firebaseapp.com",
+            databaseURL: "https://fir-demo-2fc18.firebaseio.com",
+            projectId: "fir-demo-2fc18",
+            storageBucket: "fir-demo-2fc18.appspot.com",
+            messagingSenderId: "567600608309"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="./app.js"></script>
+</body>
+</html>

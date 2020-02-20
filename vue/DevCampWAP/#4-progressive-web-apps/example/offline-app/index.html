@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Service Worker</title>
+</head>
+
+<body>
+
+    Hello SW!
+    <img src="./images/iu.jpg" alt="">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(function (swReg) {
+                    console.log(swReg, 'is service worker object');
+                })
+                .catch(function (err) {
+                    console.log(err, '실패 했을 때의 오류 정보');
+                });
+        }
+    </script>
+
+</body>
+
+</html>

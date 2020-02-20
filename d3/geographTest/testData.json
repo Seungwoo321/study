@@ -1,0 +1,180 @@
+[{
+  "region": {
+    "name": "Tokyo",
+    "latLng": [35.5, 139.5],
+    "code": "ap-northeast-1",
+    "flag": "jp.png"
+  },
+  "cost": 94225.30726588465
+}, {
+  "region": {
+    "name": "Seoul",
+    "latLng": [38, 127],
+    "code": "ap-northeast-2",
+    "flag": "kr.png"
+  },
+  "cost": 42390.19687156039
+}, {
+  "region": {},
+  "cost": 10213.593706040429
+}, {
+  "region": {
+    "name": "Oregon",
+    "latLng": [45, -123],
+    "code": "us-west-2",
+    "flag": "us.png"
+  },
+  "cost": 9783.229868473447
+}, {
+  "region": {
+    "name": "Asia Pacific CDN",
+    "latLng": [10, 102],
+    "code": "ap-southeast-1",
+    "flag": "sg.png"
+  },
+  "cost": 5316.642616072546
+}, {
+  "region": {
+    "name": "Virginia",
+    "latLng": [33, -76],
+    "code": "us-east-1",
+    "flag": "us.png"
+  },
+  "cost": 5066.812675905952
+}, {
+  "region": {
+    "name": "Singapore",
+    "latLng": [1, 103],
+    "code": "ap-southeast-1",
+    "flag": "sg.png"
+  },
+  "cost": 1471.8572027157563
+}, {
+  "region": {
+    "name": "Ireland",
+    "latLng": [53, -10],
+    "code": "eu-west-1",
+    "flag": "ie.png"
+  },
+  "cost": 1135.2992933767916
+}, {
+  "region": {
+    "name": "Frankfurt",
+    "latLng": [50, 8],
+    "code": "eu-central-1",
+    "flag": "de.png"
+  },
+  "cost": 445.56542172079304
+}, {
+  "region": {
+    "name": "Mumbai",
+    "latLng": [19, 72],
+    "code": "ap-south-1",
+    "flag": "in.png"
+  },
+  "cost": 205.84925506861765
+}, {
+  "region": {
+    "name": "Japan CDN",
+    "latLng": [37, 145],
+    "code": "ap-northeast-1",
+    "flag": "jp.png"
+  },
+  "cost": 188.47788212763805
+}, {
+  "region": {
+    "name": "Sydney",
+    "latLng": [-33, 151],
+    "code": "ap-southeast-2",
+    "flag": "au.png"
+  },
+  "cost": 70.10443020885847
+}, {
+  "region": {
+    "name": "Ohio",
+    "latLng": [40.367474, -82.996216],
+    "code": "us-east-1",
+    "flag": "us.png"
+  },
+  "cost": 51.896887374194584
+}, {
+  "region": {
+    "name": "United States CDN",
+    "latLng": [40, -103],
+    "code": "ap-southeast-1",
+    "flag": "us.png"
+  },
+  "cost": 47.36514648217797
+}, {
+  "region": {
+    "name": "São Paulo",
+    "latLng": [-23, -46],
+    "code": "sa-east-1",
+    "flag": "br.png"
+  },
+  "cost": 18.8729242193
+}, {
+  "region": {
+    "name": "Australia CDN",
+    "latLng": [-27, 133],
+    "code": "ap-southeast-2",
+    "flag": "au.png"
+  },
+  "cost": 11.886342168758
+}, {
+  "region": {
+    "name": "South America CDN",
+    "latLng": [-23, -56],
+    "code": "sa-east-1",
+    "flag": "br.png"
+  },
+  "cost": 11.590343772274
+}, {
+  "region": {
+    "name": "India CDN",
+    "latLng": [19, 72],
+    "code": "ap-south-1",
+    "flag": "in.png"
+  },
+  "cost": 6.657603418127003
+}, {
+  "region": {
+    "name": "Canada CDN",
+    "latLng": [56, -106],
+    "code": "sa-east-1",
+    "flag": "ca.png"
+  },
+  "cost": 2.583712380389999
+}, {
+  "region": {
+    "name": "Paris",
+    "latLng": [48.864716, 2.349014],
+    "code": "eu-west-3",
+    "flag": "fr.png"
+  },
+  "cost": 0.013852723400000006
+}, {
+  "region": {
+    "name": "London",
+    "latLng": [51, 0],
+    "code": "eu-west-2",
+    "flag": "england.png"
+  },
+  "cost": 0.012852889000000017
+}, {
+  "region": {
+    "name": "Canada",
+    "latLng": [45, -73],
+    "code": "ca-central-1",
+    "flag": "ca.png"
+  },
+  "cost": 0.007640000000000001
+}, {
+  "region": {
+    "name": "California",
+    "latLng": [39, -122],
+    "code": "us-west-1",
+    "flag": "us.png"
+  },
+  "cost": -11.054181614562635
+}]

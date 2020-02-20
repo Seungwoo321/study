@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <svg style="width:100%;height:100%"></svg>
+  </div>
+  <style>
+    #app {
+      width: 600px;
+      height: 600px;
+    }
+    .arc text {
+      font: 10px sans-serif;
+      text-anchor: middle;
+    }
+    .arc path {
+      stroke: #fff;
+    }
+  </style>
+  <script>
+
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          tooltipMessage : '',
+          products : [ { "product": "AmazonEC2", "cost": 80186.24271373557 }, { "product": "AmazonRDS", "cost": 23340.262389601063 }, { "product": "AmazonS3", "cost": 10223.911988311393 }, { "product": "AmazonCloudFront", "cost": 7623.931182047263 }, { "product": "AWSSupportBusiness", "cost": 6605.62327951926 }, { "product": "AWSLambda", "cost": 4950.574287157085 }, { "product": "AWSDataTransfer", "cost": 4681.712107569626 }, { "product": "AmazonApiGateway", "cost": 3887.770531825901 }, { "product": "AmazonRedshift", "cost": 3519.0353799999984 }, { "product": "AWSElementalMediaLive", "cost": 3019.290000000002 }, { "product": "AmazonWorkSpaces", "cost": 2753.8134168799997 }, { "product": "AmazonES", "cost": 2313.0360694150004 }, { "product": "AmazonElastiCache", "cost": 1486.0318454584992 }, { "product": "AWSDatabaseMigrationSvc", "cost": 1051.4010972073997 }, { "product": "ElasticMapReduce", "cost": 849.1386594169998 }, { "product": "AmazonDynamoDB", "cost": 673.5829955749025 }, { "product": "AWSDirectoryService", "cost": 663.0556460332999 }, { "product": "AmazonVPC", "cost": 630.4060000000009 }, { "product": "AmazonCloudSearch", "cost": 549.5630000000001 }, { "product": "AWSDeveloperSupport", "cost": 495.20866205872505 }, { "product": "AWS Marketplace", "cost": 477.801 }, { "product": "AmazonCloudWatch", "cost": 447.00998986752745 }, { "product": "AmazonKinesis", "cost": 275.6903069278005 }, { "product": "AmazonKinesisAnalytics", "cost": 188.76000000000002 }, { "product": "AWSDirectConnect", "cost": 163.7329820689 }, { "product": "AmazonSageMaker", "cost": 126.26694553789999 }, { "product": "AmazonRoute53", "cost": 103.52489633209846 }, { "product": "AmazonWorkMail", "cost": 81.62777774439999 }, { "product": "AWSConfig", "cost": 79.49400000000001 }, { "product": "CodeBuild", "cost": 61.14499999999998 }, { "product": "AWSQueueService", "cost": 55.18836924083991 }, { "product": "AmazonEKS", "cost": 54.563145721999994 }, { "product": "AmazonAppStream", "cost": 41.84400000000001 }, { "product": "AWSGlue", "cost": 34.70336276 }, { "product": "AmazonDAX", "cost": 34.239999999999995 }, { "product": "AmazonKinesisFirehose", "cost": 29.7714035798 }, { "product": "AmazonAthena", "cost": 28.99566 }, { "product": "awskms", "cost": 22.819872863099953 }, { "product": "AWSCloudTrail", "cost": 21.027469000000018 }, { "product": "awswaf", "cost": 20.90327371609999 }, { "product": "AmazonRekognition", "cost": 15.511 }, { "product": "AmazonSES", "cost": 12.598838793700004 }, { "product": "AmazonRegistrar", "cost": 12 }, { "product": "AWSCodeCommit", "cost": 11 }, { "product": "AmazonWorkDocs", "cost": 10.203782589000001 }, { "product": "AmazonLightsail", "cost": 9.082271858099999 }, { "product": "AmazonECR", "cost": 8.398768597199997 }, { "product": "AmazonQuickSight", "cost": 7.1000000568 }, { "product": "datapipeline", "cost": 7.0688756527999965 }, { "product": "AWSCodePipeline", "cost": 7 }, { "product": "ContactCenterTelecomm", "cost": 4.4964 }, { "product": "AmazonETS", "cost": 1.395007308 }, { "product": "AmazonSNS", "cost": 0.43503899254999867 }, { "product": "AmazonGuardDuty", "cost": 0.031358403800000004 }, { "product": "AWSElementalMediaConvert", "cost": 0.0169932 }, { "product": "AWSXRay", "cost": 0.013349999999999997 }, { "product": "AmazonGlacier", "cost": 0.0005005584 }, { "product": "AWSSecretsManager", "cost": 0.000005 }, { "product": "AWSIoT", "cost": 0.00000125 }, { "product": "AmazonConnect", "cost": 0 }, { "product": "AmazonEFS", "cost": 0 }, { "product": "AmazonPolly", "cost": 0 }, { "product": "AmazonSimpleDB", "cost": 0 }, { "product": "comprehend", "cost": 0 }, { "product": "translate", "cost": 0 } ]
+        }
+      },
+      mounted () {
+        this.drawChart()
+        window.addEventListener('resize', this.drawChart)
+      },
+      methods: {
+        drawChart () {
+          const data = this.products
+          const svg = d3.select('svg')
+          svg.html('')
+          const bounds = svg.node().getBoundingClientRect()
+          const width = bounds.width
+          const height = bounds.height
+          const radius = Math.min(width, height) / 2
+          console.log(radius)
+          const g = svg.append('g')
+          .attr('transform', `translate(${width / 2 },${height / 2})`)
+          
+          const color = d3.scaleOrdinal()
+         .range(["#98abc5", "#8a89a6", "#7b6888"]);
+
+          const pie = d3.pie()
+          .value(d => d.cost.toFixed(2))
+
+          const path = d3.arc()
+          .outerRadius(radius - 10)
+          .innerRadius(0)
+
+          const arc = g.selectAll('.arc')
+          .data(pie(data))
+          .enter()
+          .append('g')
+          .attr('class', 'arc')
+
+          arc.append('path')
+          .attr('d', path)
+          .style('fill', d => color(d.data.cost))
+
+          arc.on('mouseover', d => {
+            this.tooltipMessage = `${d.data.product}: ${d.data}`
+            console.log(d.data.product, d.data.cost)
+          })
+/*
+          const pie = d3.pie()
+          .sort(null)
+          .value(d => d)
+
+          d3.select("svg").html('')
+          const svg = d3.select("svg")
+          .attr('width', width)
+          .attr('height', height)
+          .append('g')
+          .attr('transform', `translate(${width / 2 },${height / 2})`)
+
+          const g = svg.selectAll('.arc')
+          .data(pie(data))
+          .enter()
+          .append('g')
+          .attr('class', 'arc')
+
+          g.append('path')
+          .attr('d', arc)
+          .style('fill', d => color(d.data))
+ 
+          g.on('mouseover', d => {
+            this.tooltipMessage = `${this.products[d.index].product}: ${d.data}`
+            console.log(this.products[d.index].product, d.data)
+          })
+*/          
+        }
+      }
+    })
+
+    
+
+
+
+  </script>
+</body>
+
+</html>

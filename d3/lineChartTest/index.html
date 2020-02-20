@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+  <div id="app" style="width:1000px">
+    <svg width="100%" height="350px">
+    </svg>
+  </div>
+<body>
+<style>
+
+.line {
+  fill: none;
+  stroke-width: 3;
+}
+.line-current {
+  stroke: red;
+}
+.line-estimated {
+  opacity: .4;
+  stroke: red;
+}
+.line-previous {
+  opacity: .5;
+  stroke: gray;
+}
+.dot {
+  stroke-width: 1;
+  stroke: #fff;
+}
+.dot-estimated {
+  opacity: .4;
+  fill: red
+}
+.dot-previous {
+  opacity: .5;
+  fill: gray;
+}
+.dot-current {
+  fill: red
+}
+
+
+</style>
+<script>
+
+const LinechartRender = Vue.component('linechartRender', {
+  render: function(createElement) {
+    return createElement('g')
+  }
+})
+
+
+new Vue({
+  el: '#app',
+  components: {
+    'linechart-render': LinechartRender
+  },
+  data () {
+    return {
+      dataObject: {
+        linechartRender: {
+          margin: {top: 50, right: 50, bottom: 50, left: 50},
+          d: ''
+        }
+      },
+      cumulative: { "current": [{ "date": "2018-06-01", "x": 1, "cost": 25553.169143649153 }, { "date": "2018-06-02", "x": 2, "cost": 33408.71235386744 }, { "date": "2018-06-03", "x": 3, "cost": 41258.51016865634 }, { "date": "2018-06-04", "x": 4, "cost": 49313.77011638036 }, { "date": "2018-06-05", "x": 5, "cost": 57320.71427397806 }, { "date": "2018-06-06", "x": 6, "cost": 65226.02694845569 }, { "date": "2018-06-07", "x": 7, "cost": 73279.83122461407 }, { "date": "2018-06-08", "x": 8, "cost": 81187.53567946749 }, { "date": "2018-06-09", "x": 9, "cost": 89317.49592055773 }, { "date": "2018-06-10", "x": 10, "cost": 96987.41424283778 }, { "date": "2018-06-11", "x": 11, "cost": 104927.41910921292 }, { "date": "2018-06-12", "x": 12, "cost": 113234.12846224241 }, { "date": "2018-06-13", "x": 13, "cost": 121152.30172514773 }, { "date": "2018-06-14", "x": 14, "cost": 129254.22310964586 }, { "date": "2018-06-15", "x": 15, "cost": 138030.60707799235 }, { "date": "2018-06-16", "x": 16, "cost": 145792.13975544876 }, { "date": "2018-06-17", "x": 17, "cost": 153432.00683681807 }, { "date": "2018-06-18", "x": 18, "cost": 161203.07412263736 }, { "date": "2018-06-19", "x": 19, "cost": 169117.80980758602 }, { "date": "2018-06-20", "x": 20, "cost": 177219.3028534659 }, { "date": "2018-06-21", "x": 21, "cost": 185412.5408859874 }, { "date": "2018-06-22", "x": 22, "cost": 193392.58809548692 }, { "date": "2018-06-23", "x": 23, "cost": 200922.61601588805 }, { "date": "2018-06-24", "x": 24, "cost": 208530.5717535328 }, { "date": "2018-06-25", "x": 25, "cost": 216903.84939054894 }, { "date": "2018-06-26", "x": 26, "cost": 225268.2606989226 }], "estimated": [{ "date": "2018-06-26", "x": 26, "cost": 225268.2606989226 }, { "date": "2018-06-27", "x": 27, "cost": 233459.5654145138 }, { "date": "2018-06-28", "x": 28, "cost": 241504.30891041565 }, { "date": "2018-06-29", "x": 29, "cost": 249549.05240627073 }, { "date": "2018-06-30", "x": 30, "cost": 257593.795902054 }], "previous": [{ "date": "2018-05-01", "x": 1, "cost": 32965.640391299785 }, { "date": "2018-05-02", "x": 2, "cost": 40323.994068837 }, { "date": "2018-05-03", "x": 3, "cost": 47452.39888807257 }, { "date": "2018-05-04", "x": 4, "cost": 54407.644541344256 }, { "date": "2018-05-05", "x": 5, "cost": 61167.29144621943 }, { "date": "2018-05-06", "x": 6, "cost": 67990.10570173984 }, { "date": "2018-05-07", "x": 7, "cost": 74922.05133804424 }, { "date": "2018-05-08", "x": 8, "cost": 82037.21130259024 }, { "date": "2018-05-09", "x": 9, "cost": 89315.54324108733 }, { "date": "2018-05-10", "x": 10, "cost": 96700.97080277691 }, { "date": "2018-05-11", "x": 11, "cost": 104105.3987012436 }, { "date": "2018-05-12", "x": 12, "cost": 111604.337472833 }, { "date": "2018-05-13", "x": 13, "cost": 118917.13112311112 }, { "date": "2018-05-14", "x": 14, "cost": 126541.7127372798 }, { "date": "2018-05-15", "x": 15, "cost": 134087.47234575884 }, { "date": "2018-05-16", "x": 16, "cost": 141868.4000374647 }, { "date": "2018-05-17", "x": 17, "cost": 149837.60706653286 }, { "date": "2018-05-18", "x": 18, "cost": 157823.10487807007 }, { "date": "2018-05-19", "x": 19, "cost": 165646.93958389433 }, { "date": "2018-05-20", "x": 20, "cost": 173294.8958864059 }, { "date": "2018-05-21", "x": 21, "cost": 181004.2439474295 }, { "date": "2018-05-22", "x": 22, "cost": 188666.67937897478 }, { "date": "2018-05-23", "x": 23, "cost": 196399.98237664366 }, { "date": "2018-05-24", "x": 24, "cost": 204205.31275054923 }, { "date": "2018-05-25", "x": 25, "cost": 211850.93065347653 }, { "date": "2018-05-26", "x": 26, "cost": 219135.2376085482 }, { "date": "2018-05-27", "x": 27, "cost": 226476.72375610858 }, { "date": "2018-05-28", "x": 28, "cost": 234196.6708296794 }, { "date": "2018-05-29", "x": 29, "cost": 241860.4988398378 }, { "date": "2018-05-30", "x": 30, "cost": 249717.36877656344 }, { "date": "2018-05-31", "x": 31, "cost": 257494.43503652996 }] }
+    }
+  },
+  mounted () {
+    this.drawChart()
+    window.addEventListener('resize', this.drawChart)
+  },
+  methods: {
+    drawChart () {
+      const dataset = this.cumulative
+      
+      const margin = {
+        top: 50,
+        right: 50,
+        bottom: 50,
+        left: 50
+      }
+      const svg = d3.select('svg')
+      const bounds = svg.node().getBoundingClientRect()
+      const width = bounds.width - margin.left - margin.right
+      const height = bounds.height - margin.top - margin.bottom
+      
+      const maxDay = Math.max.apply(null, Object.keys(dataset).map(key => dataset[key].length))
+      const maxCost = Math.max.apply(null, Object.keys(dataset).map(key => Math.max.apply(null,dataset[key].map(item => item.cost))))
+      const minCost = Math.min.apply(null, Object.keys(dataset).map(key => Math.max.apply(null,dataset[key].map(item => item.cost))))
+
+      const x = d3.scaleLinear().range([0, width]).domain([0, 31])
+      const y = d3.scaleLinear().range([height, 0]).domain([0, maxCost])    
+
+      // x axis 
+      svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', `translate(${margin.left}, ${margin.top + height})`)
+      .call(d3.axisBottom(x))
+
+      // y axis 
+      svg.append('g')
+      .attr('class', 'y axis')
+      .attr('transform', `translate(${margin.left }, ${margin.top})`)
+      .call(d3.axisLeft(y))
+
+      Object.keys(dataset).forEach((key, index) => {  
+        const type = key
+        const data = dataset[type]
+        const line = d3.line()
+          .x(d => x(d.x))
+          .y(d => y(d.cost))//.curve(d3.curveMonotoneX)
+      
+
+        console.log(data)
+        // line
+        const g = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`)
+        .append('path')
+        .attr('class', `line line-${type}`)
+        .attr('d', line(data))
+
+        // line dot 
+        const circle = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`)
+        .selectAll('.dot')
+        .data(data).enter()
+        .append('circle')
+        .attr('class', `dot dot-${type}`)
+        .attr('cx', (d, i) => x(d.x))
+        .attr('cy', d => y(d.cost))
+        .attr('r', 5)
+        .on('mouseover', d => {
+          console.log(`${d.date}: ${d.cost}`)
+        })
+
+        if (type == 'estimated') {
+          g.attr('stroke-dasharray', '3,3,3')
+        }
+
+      })
+    }
+  }
+})
+
+</script>
+</body>
+
+</html>
