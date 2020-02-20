@@ -1,12 +1,13 @@
 ## 목차
 
+
 * [Basic CSS](#basic-css)
     * [CSS란?](#css란)
     * [CSS가 제어하는 항목](#css가-제어하는-항목)
     * [CSS를 적용하는 방법](#css를-적용하는-방법)
     * [배우기](#배우기)
         * [Change the Color of Text](#change-the-color-of-text)
-
+        * [Use CSS Selectors to Style Elements](#use-css-selectors-to-style-elements)
 
 
 
@@ -38,15 +39,28 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 
 ### Change the Color of Text 
 
-예제 
+* 다음은 인라인 스타일로 `h2` 요소의 텍스트 색상을 파란색으로 설정한 예제이다.
+* 인라인 스타일로 적용 할 때는 `;` 으로 끝내는 것이 좋다
 
 ```html
 <h2 style="color: blue;"> Cat Photo App </h2>
 ```
-* 인라인 스타일로 적용 할 때는 `;` 으로 끝내는 것이 좋다
+* 코드 위에 `style` 블록을 만들고 `CSS 선택기`를 사용 해서 `h2` 요소에 스타일을 적용 할 수 있다.
+* 인라인 스타일 보다 더 좋은 방법이다.
+* 중괄호 안에 작성하고 세미콜론을 추가하자
+
+```html
+<style>
+    h2 {
+        color: red;
+    }
+</style>
+```
 
 
-#### Use 
+### Use CSS Selectors to Style Elements
+
+
 
 
 
