@@ -121,14 +121,33 @@ h2 {
 
 ### Import a Google Font 
 
+* 대부분의 운영체제에서 사용되는 일반적인 글꼴 외에도 사용자 정의 웹 글꼴을 지정 할 수 있다.
+* [Google Fonts](https://fonts.google.com/)는 글꼴의 URL을 참조하여 CSS에서 사용 할 수 있는 무료 웹 글꼴 라이브러리이다.
+* 인터넷에는 웹 글꼴에 대한 많은 소스가 있으나, 여기에서는 Google Fonts 를 사용해보자.
 
+```html
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+```
 
+* 이제 `font-family: FAMILY_NAME, GENERIC_NAME;` 와 같이 사용해서 `Lobster` 글꼴을 사용 할 수 있다.
+* `GENERIC_NAME` 은 선택사항이며 지정된 글꼴을 사용 할 수 없는 경우 대체 글꼴이다.
+* 대소문자를 구분하며 이름에 공백이 있을 경우 따옴표로 묶어야 한다.
 
+```css
+* {
+    font-family: Lobster, "Open Sans"
+}
+```
 
+### Specify How Fonts Should Degrade
+<!-- [Specify How Fonts Should Degrade](#specify-how-fonts-should-degrade) -->
 
-
-
+* 모든 브라우저에서 사용 할 수 있는 몇가지 기본 글꼴 `monospace, serif, sans-serif`
 
 
 
 # Applied Visual Design
+
+To Do
+In Progress 
+Done
