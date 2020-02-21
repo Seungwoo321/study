@@ -1,7 +1,7 @@
 
 # Responsive Web Design Certification (300 hours)
 
-## 목차
+## Table of contents
 
 * [Basic CSS](#basic-css)
     * [CSS란?](#css란)
@@ -11,7 +11,10 @@
         * [Change the Color of Text](#change-the-color-of-text)
         * [Use CSS Selectors to Style Elements](#use-css-selectors-to-style-elements)
         * [Use a CSS Class to Style an Element](#use-a-css-class-to-style-an-element)
-
+        * [Style Multiple Elements with a CSS Class](#style-multiple-elements-with-a-css-class)
+        * [Change the Font Size of an Element](#change-the-font-size-of-an-element)
+        * [Set the Font Family of an Element](#set-the-font-family-of-an-element)
+        * [Import a Google Font](#import-a-google-font)
 
 
 # Basic HTML and HTML5 
@@ -65,12 +68,58 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 
 ### Use a CSS Class to Style an Element
 
+* 클래스는 HTML 요소에 스타일 추가를 재사용 할 수 있는 방법이다.
 
+```html
+<style>
+    .blue-text {
+        color: blue;
+    }
+</style>
+```
 
+### Style Multiple Elements with a CSS Class
 
+* 클래스를 사용하면 여러 HTML 요소에 동일한 CSS 스타일을 사용 할 수 있다.
 
+```html
+<style>
+    .blue-text {
+        color: blue;
+    }
+</style>
+<h2 class="blue-text"> Cat Photo App </h2>
+<div>
+    <p class="blue-text"> Things cats love:</p>
+    <ul>
+        <li> cat nip </li>
+        <li> laser pointers </li>
+        <li> lasagna </li>
+    </ul>
+</div>
+```
 
+### Change the Font Size of an Element
 
+* 글꼴 크기는 다음과 같이 `font-size` CSS 속성에 의해 제어 된다.
+```css
+h1 {
+    font-size: 30px;
+}
+```
+
+### Set the Font Family of an Element
+
+* 글꼴은 `font-family` 속성을 사용하여 설정 할 수 있다.
+* 예를 들면, 다음은 `h2` 요소의 글꼴을 `sans-serif` 로 설정 한다.
+
+```css
+h2 {
+    font-family: sans-serif;
+}
+```
+
+### Import a Google Font 
 
 
 
