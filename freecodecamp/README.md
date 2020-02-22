@@ -238,7 +238,8 @@ p {
 
 ---
 
-![512x397,100%](./img/element-padding-margin.png)
+![](./img/element-padding-margin.png = 100x200)
+
 ---
 
 
