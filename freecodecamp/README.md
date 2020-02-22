@@ -238,16 +238,7 @@ p {
 
 ---
 
-![element-padding-margin.png](./img/element-padding-margin.png){:height="700px" width="400px"}
-![element-padding-margin.png](./img/element-padding-margin.png){:height="700px", width="400px"}
-![element-padding-margin.png](./img/element-padding-margin.png?v=100&s=100)
-![element-padding-margin.png](./img/element-padding-margin.png =100x100)
-![element-padding-margin.png](./img/element-padding-margin.png=100x100)
-![element-padding-margin.png](./img/element-padding-margin.png){height="50%", width="50%"}
-![element-padding-margin.png](./img/element-padding-margin.png =50%)
-![element-padding-margin.png](./img/element-padding-margin.png=50%)
-![element-padding-margin.png](./img/element-padding-margin.png =50%x50%)
-![element-padding-margin.png](./img/element-padding-margin.png=50%x50%)
+![512x397,100%](./img/element-padding-margin.png)
 ---
 
 
