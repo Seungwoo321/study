@@ -228,7 +228,7 @@ p {
 ### Use an id Attribute to Style an Element
 * `id`에 적용하는 스타일은 재사용 할 수 없으며 한 요소에만 적용 해야 한다.
 * 그래서 클래스보다 높은 중요성이 `id`에 적용된다.
-# 클래스를 `.` 을 ID는 `#` 을 이름앞에 넣어서 참조한다. 
+* 클래스를 `.` 을 ID는 `#` 을 이름앞에 넣어서 참조한다. 
 
 ```css
 #cat-photo-element {
@@ -236,19 +236,33 @@ p {
 }
 ```
 
+---
+
+![element-padding-margin.png](./img/element-padding-margin.png){:height="700px" width="400px"}
+![element-padding-margin.png](./img/element-padding-margin.png){:height="700px", width="400px"}
+![element-padding-margin.png](./img/element-padding-margin.png?v=100&s=100)
+![element-padding-margin.png](./img/element-padding-margin.png =100x100)
+![element-padding-margin.png](./img/element-padding-margin.png=100x100)
+![element-padding-margin.png](./img/element-padding-margin.png){height="50%", width="50%"}
+![element-padding-margin.png](./img/element-padding-margin.png =50%)
+![element-padding-margin.png](./img/element-padding-margin.png=50%)
+![element-padding-margin.png](./img/element-padding-margin.png =50%x50%)
+![element-padding-margin.png](./img/element-padding-margin.png=50%x50%)
+---
+
 
 ### Adjust the Padding of an Element 
 * HTML 요소는 기본적으로 작은 사각형이다.
 * HTML 요소를 둘러싸는 공간을 제어 하는 중요한 세 가지 속성은 `padding`, `margin`, `border` 이다.
 * `padding`은 요소의 내용과 요소의 `border` 사이의 공간을 제어한다.
 
-![](./img/element-padding-margin.png){: height="100" width="100"}
+
 
 ### Adjust the Margin of an Element 
 
 * 요소의 `margin`은 요소의 `border`와 주변 요소 사이의 간격을 제어한다
 
-![](./img/element-padding-margin.png =24x48)
-![](./img/element-padding-margin.png){:height="100" width="100"}
-![](./img/element-padding-margin.png){ height="100" width="100"}
+
+
+
 # Applied Visual Design
