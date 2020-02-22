@@ -7,7 +7,7 @@
     * [CSS는?](#css는)
     * [CSS가 제어하는 항목](#css가-제어하는-항목)
     * [CSS를 적용하는 방법](#css를-적용하는-방법)
-    * [배우기](#배우기)
+    * [학습하기](#학습하기)
         * [Change the Color of Text](#change-the-color-of-text)
         * [Use CSS Selectors to Style Elements](#use-css-selectors-to-style-elements)
         * [Use a CSS Class to Style an Element](#use-a-css-class-to-style-an-element)
@@ -50,7 +50,7 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 * HTML 문서의 태그내에 CSS 규칙을 배치
 * 외부 스타일 시트에 CSS 규칙을 작성한 다음 HTML 문서에서 해당 파일을 참조 
 
-## 배우기
+## 학습하기
 
 ### Change the Color of Text 
 
@@ -236,11 +236,30 @@ p {
 }
 ```
 
----
 
-![](./img/element-padding-margin.png = 100x200)
+<style>
 
----
+.box {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+}
+.yellow-box {
+    background-color:yellow;
+    padding: 10px;
+}
+.red-box {
+    background-color: red;
+    color: #fff;
+}
+.blue-box {
+    background-color: blue;
+    color: #fff;
+}
+</style>
 
 
 ### Adjust the Padding of an Element 
@@ -248,12 +267,45 @@ p {
 * HTML 요소를 둘러싸는 공간을 제어 하는 중요한 세 가지 속성은 `padding`, `margin`, `border` 이다.
 * `padding`은 요소의 내용과 요소의 `border` 사이의 공간을 제어한다.
 
+<div class="box yellow-box">
+    margin
+    <h5 class="box red-box" style="padding:20px;">
+        padding (padding: 20px)
+    </h5>
+    <h5 class="box blue-box" style="padding:10px;">
+        padding (padding: 10px)
+    </h5>
+</div>
 
 
 ### Adjust the Margin of an Element 
-
 * 요소의 `margin`은 요소의 `border`와 주변 요소 사이의 간격을 제어한다
 
+<div class="box yellow-box">
+    margin
+    <h5 class="box red-box" style="padding:20px;margin:20px;">
+        padding (margin: 20px)
+    </h5>
+    <h5 class="box blue-box" style="padding:20px;margin:10px;">
+        padding (margin: 10px)
+    </h5>
+</div>
+
+### Add a Negative Margin to an Element 
+* 요소의 `margin` 을 음수 값으로 설정하면 요소가 커진다.
+
+<div class="box yellow-box">
+    <h5 class="box red-box" style="padding:20px;margin:-15px;">
+        padding (margin: -15px)
+    </h5>
+    <h5 class="box blue-box" style="padding:20px;margin:20px;">
+        padding (margin: 20px)
+    </h5>
+</div>
+
+### Add Different Padding to Each Side of an Element
+* `padding`을 각 측면에 다른 양을 갖도록 정의 할 수 있다.
+* `padding-top`, `padding-right`, `padding-bottom`, `padding-left`
 
 
 
