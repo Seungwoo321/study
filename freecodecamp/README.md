@@ -305,8 +305,28 @@ p {
 
 ### Add Different Padding to Each Side of an Element
 * `padding`을 각 측면에 다른 양을 갖도록 정의 할 수 있다.
-* `padding-top`, `padding-right`, `padding-bottom`, `padding-left`
+* 다음 예제의 빨간박스는 `padding-top:40px;padding-right:20px; padding-bottom:20px; padding-left:40px;` 이다.
+<div class="box yellow-box">
+    <h5 class="box red-box" style="padding-top:40px;padding-right:20px; padding-bottom:20px; padding-left:40px;">
+        padding
+    </h5>
+    <h5 class="box blue-box" style="">
+        padding
+    </h5>
+</div>
 
+### Add Different Margin to Each Side of an Element
+* 요소의 `margin` 도 각 측면에서 다른 값을 갖도로 정의 할 수 있다.
+* * 다음 예제의 빨간박스는 `margin-top:40px;margin-right:20px; margin-bottom:20px; margin-left:40px;` 이다.
 
+<div class="box yellow-box">
+    <h5 style="margin-top:0px;margin-bottom:-25px;">margin</h5>
+    <h5 class="box red-box" style="margin-top:40px;margin-right:20px; margin-bottom:20px; margin-left:40px;">
+        padding
+    </h5>
+    <h5 class="box blue-box" style="">
+        padding
+    </h5>
+</div>
 
-# Applied Visual Design
+### Use Clockwise Notation to Specify the Padding of an Element
