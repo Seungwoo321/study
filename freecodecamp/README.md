@@ -250,12 +250,28 @@ p {
 
 ### Add Different Padding to Each Side of an Element
 * `padding`을 각 측면에 다른 양을 갖도록 정의 할 수 있다.
-* 예를 들면 `padding-top:40px;padding-right:20px; padding-bottom:20px; padding-left:40px;` 와 같이 설정 할 수 있다.
+* 예를 들면 다음과 같이 설정 할 수 있다.
+```css
+.blue-box {
+    padding-top: 40px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+}
 
+```
 
 ### Add Different Margin to Each Side of an Element
 * 요소의 `margin` 도 각 측면에서 다른 값을 갖도로 정의 할 수 있다.
-* 예를 들면 `margin-top:40px;margin-right:20px; margin-bottom:20px; margin-left:40px;` 와 같이 설정 할 수 있다.
+* 예를 들면 다음과 같이 설정 할 수 있다.
+```css
+.red-box {
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+```
 
 
 ### Use Clockwise Notation to Specify the Padding of an Element
