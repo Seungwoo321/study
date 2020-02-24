@@ -278,3 +278,13 @@ p {
 ```
 
 ### Use Clockwise Notation to Specify the Padding of an Element
+* `padding-top`, `padding-right`, `padding-bottom`, `padding-left`를 시계방향으로 한줄에 모두 지정 할 수 있다.
+```css
+padding: 10px 20px 10px 20px;
+```
+
+### Use Clockwise Notation to Specify the margin of an Element 
+* `margin-top`, `margin-right`, `margin-bottom`, `margin-left`도 시계방향으로 한줄에 모두 지정 할 수 있다.
+```css
+margin: 20px 40px 20px 40px;
+```
