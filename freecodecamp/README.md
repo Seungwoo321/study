@@ -24,7 +24,11 @@
         * [Set the id of an Element](#set-the-id-of-an-element)
         * [Use an id Attribute to Style an Element](#use-an-id-attribute-to-style-an-element)
         * [Adjust the Padding of an Element](#adjust-the-padding-of-an-element)
-        * 
+        * [Adjust the Margin of an Element](#adjust-the-margin-of-an-element)
+        * [Add a Negative Margin to an Element](#add-a-negative-margin-to-an-element)
+        * [Add Different Padding to Each Side of an Element](#add-different-padding-to-each-side-of-an-element)
+        * [Add Different Margin to Each Side of an Element](#add-different-margin-to-each-side-of-an-element)
+        * [Use Clockwise Notation to Specify the Padding of an Element](#use-clockwise-notation-to-specify-the-padding of-an-element)
 
 
 # Basic HTML and HTML5 
@@ -175,7 +179,7 @@ p {
 
 ### Add Borders Around Your Elements
 * CSS `border` (테두리)에는 `style`, `color`, `width` 같은 속성이 있다
-* 예를 들어 HTML 요소 주위에 빨간색 5픽셀 테두리르 만들려면 이 클래스를 사용 할 수 있다.
+* 예를 들어 HTML 요소 주위에 빨간색 5픽셀 테두리를 만들려면 이 클래스를 사용 할 수 있다.
 ```css
 .red-border {
     border-color: red;
@@ -272,6 +276,5 @@ p {
     margin-left: 40px;
 }
 ```
-
 
 ### Use Clockwise Notation to Specify the Padding of an Element
