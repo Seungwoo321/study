@@ -28,7 +28,7 @@
         * [Add a Negative Margin to an Element](#add-a-negative-margin-to-an-element)
         * [Add Different Padding to Each Side of an Element](#add-different-padding-to-each-side-of-an-element)
         * [Add Different Margin to Each Side of an Element](#add-different-margin-to-each-side-of-an-element)
-        * [Use Clockwise Notation to Specify the Padding of an Element](#use-clockwise-notation-to-specify-the-padding of-an-element)
+        * [Use Clockwise Notation to Specify the Padding of an Element](#use-clockwise-notation-to-specify-the-padding-of-an-element)
 
 
 # Basic HTML and HTML5 
