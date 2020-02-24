@@ -267,12 +267,35 @@ p {
 * HTML 요소를 둘러싸는 공간을 제어 하는 중요한 세 가지 속성은 `padding`, `margin`, `border` 이다.
 * `padding`은 요소의 내용과 요소의 `border` 사이의 공간을 제어한다.
 
-<div class="box yellow-box">
+<div style="border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    background-color:yellow;
+    padding: 10px;">
     margin
-    <h5 class="box red-box" style="padding:20px;">
+    <h5 style="border-style: solid;
+        border-color: black;
+        border-width: 5px;
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+        background-color: red;
+        color: #fff;
+        padding:20px;">
         padding (padding: 20px)
     </h5>
-    <h5 class="box blue-box" style="padding:10px;">
+    <h5 style="border-style: solid;
+        border-color: black;
+        border-width: 5px;
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+        background-color: blue;
+        color: #fff;
+        padding:10px;">
         padding (padding: 10px)
     </h5>
 </div>
@@ -281,12 +304,35 @@ p {
 ### Adjust the Margin of an Element 
 * 요소의 `margin`은 요소의 `border`와 주변 요소 사이의 간격을 제어한다
 
-<div class="box yellow-box">
+<div style="border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    background-color:yellow;
+    padding: 10px;">
     margin
-    <h5 class="box red-box" style="padding:20px;margin:20px;">
+    <h5 style="border-style: solid;
+        border-color: black;
+        border-width: 5px;
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+        background-color: red;
+        color: #fff;
+        padding:20px;margin:20px;">
         padding (margin: 20px)
     </h5>
-    <h5 class="box blue-box" style="padding:20px;margin:10px;">
+    <h5 style="border-style: solid;
+        border-color: black;
+        border-width: 5px;
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+        background-color: blue;
+        color: #fff;
+        padding:20px;margin:10px;">
         padding (margin: 10px)
     </h5>
 </div>
