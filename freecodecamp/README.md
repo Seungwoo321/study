@@ -236,143 +236,26 @@ p {
 }
 ```
 
-
-<style>
-
-.box {
-    border-style: solid;
-    border-color: black;
-    border-width: 5px;
-    text-align: center;
-    color: #000;
-    font-weight: bold;
-}
-.yellow-box {
-    background-color:yellow;
-    padding: 10px;
-}
-.red-box {
-    background-color: red;
-    color: #fff;
-}
-.blue-box {
-    background-color: blue;
-    color: #fff;
-}
-</style>
-
-
 ### Adjust the Padding of an Element 
 * HTML 요소는 기본적으로 작은 사각형이다.
 * HTML 요소를 둘러싸는 공간을 제어 하는 중요한 세 가지 속성은 `padding`, `margin`, `border` 이다.
 * `padding`은 요소의 내용과 요소의 `border` 사이의 공간을 제어한다.
 
-<div style="border-style: solid;
-    border-color: black;
-    border-width: 5px;
-    text-align: center;
-    color: #000;
-    font-weight: bold;
-    background-color:yellow;
-    padding: 10px;">
-    margin
-    <h5 style="border-style: solid;
-        border-color: black;
-        border-width: 5px;
-        text-align: center;
-        color: #000;
-        font-weight: bold;
-        background-color: red;
-        color: #fff;
-        padding:20px;">
-        padding (padding: 20px)
-    </h5>
-    <h5 style="border-style: solid;
-        border-color: black;
-        border-width: 5px;
-        text-align: center;
-        color: #000;
-        font-weight: bold;
-        background-color: blue;
-        color: #fff;
-        padding:10px;">
-        padding (padding: 10px)
-    </h5>
-</div>
-
-
 ### Adjust the Margin of an Element 
 * 요소의 `margin`은 요소의 `border`와 주변 요소 사이의 간격을 제어한다
 
-<div style="border-style: solid;
-    border-color: black;
-    border-width: 5px;
-    text-align: center;
-    color: #000;
-    font-weight: bold;
-    background-color:yellow;
-    padding: 10px;">
-    margin
-    <h5 style="border-style: solid;
-        border-color: black;
-        border-width: 5px;
-        text-align: center;
-        color: #000;
-        font-weight: bold;
-        background-color: red;
-        color: #fff;
-        padding:20px;margin:20px;">
-        padding (margin: 20px)
-    </h5>
-    <h5 style="border-style: solid;
-        border-color: black;
-        border-width: 5px;
-        text-align: center;
-        color: #000;
-        font-weight: bold;
-        background-color: blue;
-        color: #fff;
-        padding:20px;margin:10px;">
-        padding (margin: 10px)
-    </h5>
-</div>
 
 ### Add a Negative Margin to an Element 
 * 요소의 `margin` 을 음수 값으로 설정하면 요소가 커진다.
 
-<div class="box yellow-box">
-    <h5 class="box red-box" style="padding:20px;margin:-15px;">
-        padding (margin: -15px)
-    </h5>
-    <h5 class="box blue-box" style="padding:20px;margin:20px;">
-        padding (margin: 20px)
-    </h5>
-</div>
-
 ### Add Different Padding to Each Side of an Element
 * `padding`을 각 측면에 다른 양을 갖도록 정의 할 수 있다.
-* 다음 예제의 빨간박스는 `padding-top:40px;padding-right:20px; padding-bottom:20px; padding-left:40px;` 이다.
-<div class="box yellow-box">
-    <h5 class="box red-box" style="padding-top:40px;padding-right:20px; padding-bottom:20px; padding-left:40px;">
-        padding
-    </h5>
-    <h5 class="box blue-box" style="">
-        padding
-    </h5>
-</div>
+* 예를 들면 `padding-top:40px;padding-right:20px; padding-bottom:20px; padding-left:40px;` 와 같이 설정 할 수 있다.
+
 
 ### Add Different Margin to Each Side of an Element
 * 요소의 `margin` 도 각 측면에서 다른 값을 갖도로 정의 할 수 있다.
-* * 다음 예제의 빨간박스는 `margin-top:40px;margin-right:20px; margin-bottom:20px; margin-left:40px;` 이다.
+* 예를 들면 `margin-top:40px;margin-right:20px; margin-bottom:20px; margin-left:40px;` 와 같이 설정 할 수 있다.
 
-<div class="box yellow-box">
-    <h5 style="margin-top:0px;margin-bottom:-25px;">margin</h5>
-    <h5 class="box red-box" style="margin-top:40px;margin-right:20px; margin-bottom:20px; margin-left:40px;">
-        padding
-    </h5>
-    <h5 class="box blue-box" style="">
-        padding
-    </h5>
-</div>
 
 ### Use Clockwise Notation to Specify the Padding of an Element
