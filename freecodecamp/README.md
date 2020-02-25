@@ -288,3 +288,99 @@ padding: 10px 20px 10px 20px;
 ```css
 margin: 20px 40px 20px 40px;
 ```
+
+### Use Attribute Selectors to Style Elements
+* `id` 및 `class` selector 외에 `[attr=value]` attribute selector 를 사용해서 스타일을 지정할 요소 그룹을 선택 할 수 있다.
+```css
+[type='radio'] {
+    margin: 20px 0px 20px 0px;
+}
+```
+
+### Understand Absoulte versus Relative Units
+* 지난 과제에서는 요소의 `padding`과 `margin`을 모두 `px`(픽셀)로 설정하고 있다.
+* `px`(픽셀)은 길이 단위의 한 유형으로, 브라우저에 항목 크기 또는 간격을 지정하는 방법을 알려준다.
+* CSS에는 `px`(픽셀) 외에도 사용 할 수 있는 다양한 길이 단위 옵션이 있다.
+* 길이 단위의 두 가지 주요 유형은 `absoluted`(절대적)과 `relative`(상대적)이 있다. 
+* `absolute`(절대적인) 단위는 물리적은 길이 단위로 `in`과 `mm`으로 각각 인치 및 밀리미터를 제공한다. 절대 길이 단위는 실제 측정값과 비슷하지만, 화면의 해상도에 따라 약간의 차이가 있다.
+* `relative`(상대적) 단위는 `em` 또는 `rem`으로 `em`은 요소의 글꼴의 크기를 기반으로 한다. 예를 들어, `font-size` 속성을 사용하면 부모의 `font-size` 속성과 관련이 있다. 
+
+> 뷰포트의 크기에 연결된 여러 상대적 단위 옵션은, `Responsive Web Design` 에서 다룹니다.
+
+### Style the HTML Body Element
+* 이제 새롭게 CSS상속에 대해 알아보자
+* 모든 HTML페이지에는 `body` 요소가 있고, 이는 `background-color` 속성을 주면 색을 띠는 것으로 증명 할 수 있다.
+```css
+body {
+    background-color: black;
+}
+```
+
+### Inherit Styles from the Body Element
+* 다른 HTML 요소와 마찬가지로 `body` 요소에 스타일을 지정 할 수 있다.
+* 다른 모든 요소는 `body` 요소의 스타일을 상속한다.
+```css
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+}
+
+```
+```html
+<h1>
+    Hello World
+</h1>
+```
+
+
+### Prioritize One Style Over Another
+* 때로는 HTML 요소가 서로 충돌하는 여러 스타일을 수신 할 수 있다.
+* 예를 들어 `h1` 요소는 동시에 녹색과 분홍색이 될 수 없다.
+* 텍스트를 분홍색으로 만드는 클래스를 만든 다음 `h1` 요소에 적용하면 클래스가 `body`요소에서 상속 받은 `color: green;` 요소를 재정의 한다.
+```css
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+}
+.pink-text {
+    color: pink;
+}
+
+```
+```html
+<h1 class="pink-text">
+    Hello World
+</h1>
+```
+
+
+### Override Styles in Subsequent CSS 
+* `pink-text` 클래스는 `body` 요소의 CSS 선언을 무시한다.
+* `h1` 요소에 `pink-text` 클래스와 `blue-text` 클래스를 모두 적용하면?
+
+> 두 번째 선언이 첫 번째 선언 보다 항상 우선된다.
+
+```css
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+}
+.pink-text {
+    color: pink;
+}
+.blue-text {
+    color: blue;
+}
+
+```
+```html
+<h1 class="blue-text pink-text"> 
+    Hello World
+</h1>
+```
+
+
+### Override Class Declarations by Styling ID Attributes
