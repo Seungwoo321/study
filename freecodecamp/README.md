@@ -378,9 +378,101 @@ body {
 ```
 ```html
 <h1 class="blue-text pink-text"> 
-    Hello World
+    Blue
 </h1>
 ```
 
 
 ### Override Class Declarations by Styling ID Attributes
+* 브라우저는 선언 순서대로 CSS를 위에서 아래로 읽는다.
+* 즉, 충돌이 발생하면 브라우저는 마지막에 온 CSS 선언을 사용한다 
+* 그런데, 요소에 id를 부여하면 id에 대한 스타일링이 우선시 된다 
+
+```css
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+}
+#orange-text {
+    color: orange;
+}
+.pink-text {
+    color: pink;
+}
+.blue-text {
+    color: blue;
+}
+```
+```html
+<h1 id="orange-text" class="pink-text blue-text">
+    Orange
+</h1>
+```
+
+### Override Class Declarations with Inline Styles
+* Class 보다 Id에 대한 스타일링이 우선시 된다.
+* 그리고, Id 보다는 inline 스타일링이 우선시 된다.
+```css
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+}
+#orange-text {
+    color: orange;
+}
+.pink-text {
+    color: pink;
+}
+.blue-text {
+    color: blue;
+}
+```
+```html
+<h1 id="orange-text" class="pink-text blue-text" style="color:white">
+    White
+</h1>
+```
+
+### Override All Other Styles by using Important
+* inline 스타일이 `style`의 모든 CSS 선언을 재정의 한다
+* 하지만 가장 강력한 방법은 `!importatn` 이다
+```css
+body {
+    background-color: black;
+    font-family: monospace;
+    color: green;
+}
+#orange-text {
+color: orange;
+}
+.pink-text {
+    color: pink !important;
+}
+.blue-text {
+    color: blue;
+}
+```
+
+```html
+<h1 id="orange-text" class="pink-text blue-text" style="color: white">
+    Hello World!
+</h1>
+```
+
+### Use Hex Code for Specific Colors
+* CSS에서 색상을 표현하는 방법으로 16진수 코드를 사용한다.
+* 예를들어 `#000000` 은 검은색이다.
+```css
+body {
+    color: #000000; /* black */
+}
+```
+
+### Use Hex Code to Mix Colors 
+* 16진 코드는 6개의 16진 숫자를 사용하여 각각 2개의 빨강(R). 녹색(G), 파랑(B)의 구성요소로 색상을 나타낸다.
+* 이 세 가지 순수한 색상(빨강, 녹색, 파랑)은 각각의 양을 변화 시켜서 1600만개 이상의 다른 색상을 만들 수 있다.
+* 예를들어, 주황색은 순수한 빨강이며, 녹색과 섞여 있고 파랑은 없다. 16진수로는 `#ffa500`
+* 숫자 `0`은 16진 코드에서 가장 낮은 숫자이며 색상이 완전히 없음을 나타낸다.
+* 숫자 `f`는 16진 코드에서 가장 높은 숫자이며 가능한 최대 밝기를 나타낸다.
