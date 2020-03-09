@@ -799,3 +799,20 @@ background: var(--penguin-skin, black);
 ### Use a media query to chagne a variable
 * CSS 변수는 미디어 쿼리 사용 방법을 단순화 할 수 있다.
 * 예를 들어, 화면이 미디어 쿼리 중단 점보다 작거나 큰 경우 변수 값을 변경 할 수 있으며 사용되는 우치에 따라 해당 스타일이 적용된다.
+
+```css
+:root {
+    --penguin-size: 300px;
+    --penguin-skin: gray;
+    --penguin-belly: white;
+    --penguin-beak: orange;
+}
+
+@media (max-width: 350px) {
+    :root {
+        --penguin-size: 200px;
+        --penguin-skin: black;
+    } 
+}
+
+```
