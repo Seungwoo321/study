@@ -39,8 +39,19 @@
         * [Override Class Declarations by Styling ID Attributes](#override-class-declarations-by-styling-id-attributes)
         * [Override Class Declarations with Inline Styles](#override-class-declarations-with-inline-styles)
         * [Override All Other Styles by using Important](#override-all-other-styles-by-using-important)
-
-
+        * [Use Hex Code for Specific Colors](#use-hex-code-for-specific-colors)
+        * [Use Hex Code to Mix Colors](#use-hex-code-to-mix-colors)
+        * [Use Abbreviated Hex Codes](#use-abbreviated-hex-codes)
+        * [Use RGB values to Color Elements](#use-rgb-values-to-color-elements)
+        * [Use RGB to Mix Colors](#use-rgb-to-mix-colors)
+        * [Use CSS Variable to change several elements at once](#use-css-variable-to-change-several-elements-at-once)
+        * [Create a custom CSS Variable](#create-a-custom-css-variable)
+        * [CSS Use a custom CSS Variable](#css-use-a-custom-css-variable)
+        * [Attach a Fallback value to a CSS Variable](#attach-a-fallback-value-to-a-CSS-variable)
+        * [Improve Compatibility with Browser Fallbacks](#improve-compatibility-with-browser-fallbacks)
+        * [Inherit CSS Variables](#inherit-css-variables)
+        * [Change a variable for a specific area](#change-a-variable-for-a-specific-area)
+        * [Use a media query to chagne a variable](#use-a-media-query-to-chagne-a-variable)
 
 # Basic HTML and HTML5 
 
