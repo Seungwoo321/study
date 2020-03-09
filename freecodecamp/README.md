@@ -487,3 +487,315 @@ body {
 * 예를들어, 주황색은 순수한 빨강이며, 녹색과 섞여 있고 파랑은 없다. 16진수로는 `#ffa500`
 * 숫자 `0`은 16진 코드에서 가장 낮은 숫자이며 색상이 완전히 없음을 나타낸다.
 * 숫자 `f`는 16진 코드에서 가장 높은 숫자이며 가능한 최대 밝기를 나타낸다.
+
+### Use Abbreviated Hex Codes
+* 1600만 가지의 넘는 색상의 16진 코드를 기억하기는 어렵다.
+* 16진코드는 단축 할 수 있다.
+* 빨간색 #FF0000 은 #F00으로 단축 된다.
+* 이 단축된 양식은 한 자리는 빨간색, 한 자리는 녹색, 한 자리는 파란색을 나타낸다.
+* 이렇게 약 4000개의 색상을 나타낼 수 있다.
+
+Color|Short Hex Code
+-----|--------------
+Cyan | #0ff 
+Green| #0f0 
+Red  | #f00 
+Fuchsia | #f0f
+
+### Use RGB values to Color Elements
+* CSS에서 색상을 표현할 수 있는 또 다른 방법은 `RGB` 값을 사용 하는 것이다.
+* 검은색은 `rgb(0, 0, 0)` 이다.
+* 흰색은 `rgb(255, 255, 255)` 이다.
+* 16진수 코드에서와 같이 6개의 16진수를 사용하는 대신 `RGB` 0과 255사이의 숫자로 각 색상의 밝기를 지정한다.
+* 한 색상의 두 자리 숫자가 16곱하기 16으로 총 256개의 값이 제공된다. 
+* 따라서 `RGB`와 16진 코드는 정확히 같은 수의 색상을 나타낸다.
+
+
+### Use RGB to Mix Colors 
+* 16진 코드와 마찬가지로 서로 다른 값을 조합하여 RGB로 색상을 혼합할 수 있다.
+
+Color | RGB
+------|----
+Blue | rgb(0, 0, 255)
+Red | rgb(255, 0, 0)
+Orchid | rgb(218, 112, 214)
+Sienna | rgb(160, 82, 45)
+
+### Use CSS Variable to change several elements at once
+* CSS 변수는 하나의 값만 변경하여 여러 CSS 스타일 속성을 한번에 변경하는 강력한 방법이다.
+
+```css
+.penguin {
+    --penguin-skin: gray;
+    --penguin-belly: white;
+    --penguin-beak: orange;
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 5%;
+    width: 300px;
+    height: 300px;
+}
+ .penguin-top {
+    top: 10%;
+    left: 25%;
+    background: var(--penguin-skin, gray);
+    width: 50%;
+    height: 45%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .penguin-bottom {
+    top: 40%;
+    left: 23.5%;
+    background: var(--penguin-skin, gray);
+    width: 53%;
+    height: 45%;
+    border-radius: 70% 70% 100% 100%;
+  }
+
+  .right-hand {
+    top: 0%;
+    left: -5%;
+    background: var(--penguin-skin, gray);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 120% 30%;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  .left-hand {
+    top: 0%;
+    left: 75%;
+    background: var(--penguin-skin, gray);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 30% 120%;
+    transform: rotate(-45deg);
+    z-index: -1;
+  }
+
+  .right-cheek {
+    top: 15%;
+    left: 35%;
+    background: var(--penguin-belly, white);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .left-cheek {
+    top: 15%;
+    left: 5%;
+    background: var(--penguin-belly, white);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .belly {
+    top: 60%;
+    left: 2.5%;
+    background: var(--penguin-belly, white);
+    width: 95%;
+    height: 100%;
+    border-radius: 120% 120% 100% 100%;
+  }
+
+  .right-feet {
+    top: 85%;
+    left: 60%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(-80deg);
+    z-index: -2222;
+  }
+
+  .left-feet {
+    top: 85%;
+    left: 25%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(80deg);
+    z-index: -2222;
+  }
+
+  .right-eye {
+    top: 45%;
+    left: 60%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .left-eye {
+    top: 45%;
+    left: 25%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .sparkle {
+    top: 25%;
+    left: 15%;
+    background: white;
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+  }
+
+  .blush-right {
+    top: 65%;
+    left: 15%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .blush-left {
+    top: 65%;
+    left: 70%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-top {
+    top: 60%;
+    left: 40%;
+    background: var(--penguin-beak, orange);
+    width: 20%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-bottom {
+    top: 65%;
+    left: 42%;
+    background: var(--penguin-beak, orange);
+    width: 16%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  body {
+    background:#c6faf1;
+  }
+
+  .penguin * {
+    position: absolute;
+  }
+```
+
+```html
+<div class="penguin">
+  <div class="penguin-bottom">
+    <div class="right-hand"></div>
+    <div class="left-hand"></div>
+    <div class="right-feet"></div>
+    <div class="left-feet"></div>
+  </div>
+  <div class="penguin-top">
+    <div class="right-cheek"></div>
+    <div class="left-cheek"></div>
+    <div class="belly"></div>
+    <div class="right-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="left-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="blush-right"></div>
+    <div class="blush-left"></div>
+    <div class="beak-top"></div>
+    <div class="beak-bottom"></div>
+  </div>
+</div>
+```
+
+### Create a custom CSS Variable
+* CSS 변수를 만들려면 앞에 두 개의 하이픈이 있는 이름으로 지정하고 값을 지정하면 된다.
+```css
+--penguin-skin: gray;
+```
+
+### CSS Use a custom CSS Variable
+* 변수를 만든 후에는 지정한 이름을 참조하여 다른 CSS 속성에 해당 값을 할당 할 수 있다.
+```css
+background: var(--penguin-skin);
+```
+
+### Attach a Fallback value to a CSS Variable
+* 지정된 변수가 유효하지 않은 경우 브라우저에서 되돌릴 fallback 값을 설정 할 수 있다.
+
+> 이 방법은 브라우저 호환성을 높이는 데 사용되지 않으며 IE 브라우저에서는 작동하지 않는다.
+
+```css
+background: var(--penguin-skin, black);
+```
+
+
+### Improve Compatibility with Browser Fallbacks
+* CSS로 작업 할 때 브라우저 호환성 문제가 발생 할 수 있다. 잠재적인 문제를 피하기 위해 브라우저 fallback 을 제공하는 것이 중요하다.
+* 브라우저가 웹 페이지의 CSS를 구문 분석할 때 인식하지 않거나 지원하지 않는 속성은 무시한다.
+* 예를 들어 CSS변수를 사용하여 사이트에 배경색을 지정하면 Internet Explorer는 CSS변수를 지원하지 않으므로 배경색을 무시한다. 이 경우 브라우저는 해당 속성에 대한 값을 사용하고 다른 값을 찾을 수 없으면 기본값으로 되돌린다.
+* 즉, 브라우저 fallback 을 제공하려는 경우 선언 직전에 더 널리 지원되는 다른 값을 제공하는 것이 쉽다 
+
+```css
+:root {
+    --red-color: red;
+}
+.red-box {
+    background: red;
+    background: var(--red-color);
+    height: 200px;
+    width: 200px;
+}
+```
+
+```html
+<div class="red-box"></div>
+```
+
+### Inherit CSS Variables
+* 변수를 작성 할 때 변수를 작성하는 선택기에서 사용 할 수 있고, 해당 선택기의 모든 하위항목에서도 사용 할 수 있다.
+* 이는 일반적인 속성과 마찬가지로 CSS변수가 상속되기 때문에 발생한다.
+* 상속을 사용하기 위해 CSS변수는 종종 :root 요소에 정의된다.
+* `:root`는 문서의 루트요소, 일반적인 html 와 일치하는 __pseudo-class__ 선택기다.
+* `:root`에서 변수를 작성하면 전역으로 사용하능 하며 스타일 시트의 다른 선택기에서 접근 할 수 있다.
+```css
+:root {
+    --penguin-belly: pink;
+}
+```
+
+### Change a variable for a specific area
+* `:root`에 변수를 만들면 전체 페이지에 해당 변수의 값이 설정된다.
+* 그런 다음 특정 요소내에서 변수를 다시 설정하면 덮어 쓸 수 있다.
+
+```css
+:root {
+    --penguin-skin: gray;
+    --penguin-belly: pink;
+    --penguin-beak: orange;
+}
+.penguin {
+    --penguin-belly: white;
+}
+
+```
+
+
+### Use a media query to chagne a variable
+* CSS 변수는 미디어 쿼리 사용 방법을 단순화 할 수 있다.
+* 예를 들어, 화면이 미디어 쿼리 중단 점보다 작거나 큰 경우 변수 값을 변경 할 수 있으며 사용되는 우치에 따라 해당 스타일이 적용된다.
