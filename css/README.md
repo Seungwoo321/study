@@ -25,6 +25,7 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 ```
 
 ## 클래스를 사용하여 여러 HTML 요소에 스타일 적용
+```html
 <style>
     .blue-text {
         color: blue;
