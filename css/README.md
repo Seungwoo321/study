@@ -29,6 +29,7 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 ```
 
 * 외부 스타일 시트에 CSS 규칙을 작성한 다음 HTML 문서에서 해당 파일을 참조한다.
+
 __index.html__
 ```html
 <link href="./style.css" rel="stylesheet" type="text/css">
@@ -36,6 +37,19 @@ __index.html__
 __style.css__
 ```css
 /* ... */
+```
+* Class를 사용하여 여러 HTML 요소에 스타일을 적용 할 수 있다.
+```css
+.blue-text {
+    color: blue;
+}
+```
+* 각 HTML 요소의 고유한 `id` 속성을 사용하여 단일 요소의 스타일을 지정 할 수 있다.
+* 브라우저는 강제 하지 않지만, `id` 속성은 고유해야하는 것이 널리 권장되는 모범 사례이다. 
+```css
+#app-title {
+    color: red;
+}
 ```
 
 ## 글꼴 스타일 지정하기
@@ -96,3 +110,4 @@ p {
 }
 ```
 
+## 요소의 id를 설정하여  
