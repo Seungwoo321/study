@@ -1,8 +1,9 @@
 
 ## Table of contents
-    * [Intruduction to the Applied Visual Design Challenges](#intruduction-to-the-applied-visual-design-challenges)
-    * [Create Visual Balance Using the text-align Property](#create-visual-balance-using-the-text-align-property)
-    * [Adjust the Width of an Element Using the width Property](#adjust-the-width-of-an-element-using-the-width-property)
+* [Intruduction to the Applied Visual Design Challenges](#intruduction-to-the-applied-visual-design-challenges)
+* [Create Visual Balance Using the text-align Property](#create-visual-balance-using-the-text-align-property)
+* [Adjust the Width of an Element Using the width Property](#adjust-the-width-of-an-element-using-the-width-property)
+
 
 Adjust the Height of an Element Using the height Property
 Use the strong Tag to Make Text Bold
@@ -54,6 +55,8 @@ Change Animation Timing with Keywords
 Learn How Bezier Curves Work
 Use a Bezier Curve to Move a Graphic
 Make Motion More Natural Using a Bezier Curve
+
+
 
 ## Intruduction to the Applied Visual Design Challenges
 웹 개발의 시각 디자인은 광범위한 주제입니다. 타이포그래피, 색상 이론, 그래픽, 애니메이션 및 페이지 레이아웃을 결합하여 사이트의 메시지 전달을 돕습니다. 좋은 디자인의 정의는 주제에 관한 많은 책을 가지고 잘 논의 된 주제 입니다.
