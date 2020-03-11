@@ -1,10 +1,6 @@
 ## Table of contents
 
-* [CSS는?](#css는)
-* [CSS가 제어하는 항목](#css가-제어하는-항목)
-* [CSS를 적용하는 방법](#css를-적용하는-방법)
-* [Change the Color of Text](#change-the-color-of-text)
-* [Use CSS Selectors to Style Elements](#use-css-selectors-to-style-elements)
+* [Introduction to Basic CSS](#introduction-to-basic-css)
 * [Use a CSS Class to Style an Element](#use-a-css-class-to-style-an-element)
 * [Style Multiple Elements with a CSS Class](#style-multiple-elements-with-a-css-class)
 * [Change the Font Size of an Element](#change-the-font-size-of-an-element)
@@ -48,16 +44,14 @@
 * [Change a variable for a specific area](#change-a-variable-for-a-specific-area)
 * [Use a media query to chagne a variable](#use-a-media-query-to-chagne-a-variable)
 
-# Basic HTML and HTML5 
 
-# Basic CSS 
+## Introduction to Basic CSS
 
-## CSS는?
+### CSS는?
 
 CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용을 표시하는 방법을 브라우저에 알려준다. 
 
-
-## CSS가 제어하는 항목
+### CSS가 제어하는 항목
 
 * color
 * fonts
@@ -66,14 +60,12 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 * decorations
 * transitions
 
-## CSS를 적용하는 방법
+### CSS를 적용하는 방법
 * style 속성을 사용하여 인라인 스타일을 HTML 요소에 직접 적용
 * HTML 문서의 태그내에 CSS 규칙을 배치
 * 외부 스타일 시트에 CSS 규칙을 작성한 다음 HTML 문서에서 해당 파일을 참조 
 
-## 학습하기
-
-### Change the Color of Text 
+## Change the Color of Text 
 
 * 다음은 인라인 스타일로 `h2` 요소의 텍스트 색상을 파란색으로 설정한 예제이다.
 * 인라인 스타일로 적용 할 때는 `;` 으로 끝내는 것이 좋다
@@ -83,7 +75,7 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 ```
 
 
-### Use CSS Selectors to Style Elements
+## Use CSS Selectors to Style Elements
 
 * 인라인 스타일 보다 더 좋은 방법이다.
 * 코드 위에 `style` 블록을 만들고 `CSS 선택기`를 사용 해서 `h2` 요소에 스타일을 적용 한다.
@@ -97,7 +89,7 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 </style>
 ```
 
-### Use a CSS Class to Style an Element
+## Use a CSS Class to Style an Element
 
 * 클래스는 HTML 요소에 스타일 추가를 재사용 할 수 있는 방법이다.
 
@@ -109,7 +101,7 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 </style>
 ```
 
-### Style Multiple Elements with a CSS Class
+## Style Multiple Elements with a CSS Class
 
 * 클래스를 사용하면 여러 HTML 요소에 동일한 CSS 스타일을 사용 할 수 있다.
 
@@ -130,7 +122,7 @@ CSS (Cascading Style Sheets)는 HTML로 작성하는 텍스트 및 기타 내용
 </div>
 ```
 
-### Change the Font Size of an Element
+## Change the Font Size of an Element
 
 * 글꼴 크기는 다음과 같이 `font-size` CSS 속성에 의해 제어 된다.
 ```css
@@ -139,7 +131,7 @@ h1 {
 }
 ```
 
-### Set the Font Family of an Element
+## Set the Font Family of an Element
 
 * 글꼴은 `font-family` 속성을 사용하여 설정 할 수 있다.
 * 예를 들면, 다음은 `h2` 요소의 글꼴을 `sans-serif` 로 설정 한다.
@@ -150,7 +142,7 @@ h2 {
 }
 ```
 
-### Import a Google Font 
+## Import a Google Font 
 
 * 대부분의 운영체제에서 사용되는 일반적인 글꼴 외에도 사용자 정의 웹 글꼴을 지정 할 수 있다.
 * [Google Fonts](https://fonts.google.com/)는 글꼴의 URL을 참조하여 CSS에서 사용 할 수 있는 무료 웹 글꼴 라이브러리이다.
@@ -169,7 +161,7 @@ p {
 }
 ```
 
-### Specify How Fonts Should Degrade
+## Specify How Fonts Should Degrade
 * `font-family: FAMILY_NAME, GENERIC_NAME;` 에서 `GENERIC_NAME`에 대한 설명이다
 * 모든 브라우저에는 사용 할 수 있는 몇가지 기본 글꼴 `monospace, serif, sans-serif` 이 있다.
 * 한 글꼴클 사용 할 수 없으면 브라우저에 다른 글꼴로 degrade (강등) 하도록 지시 할 수 있다 
@@ -184,7 +176,7 @@ p {
 참고: 컴퓨터에 `FAMILY_NAME` 글꼴이 설치되어 있으면, 브라우저에서 글꼴을 찾을 수 있으므로, degrade (강등) 되지 않는다.
 
 
-### Size Your Images
+## Size Your Images
 * CSS에는 요소의 너비를 제어하는 `width` 속성이 있다.
 * 글꼴과 마찬가지로 `px`(픽셀)을 사용하여 이미지 너비를 지정한다.
 * 다음 예는 HTML 요소에 너비 500 픽셀을 적용 하는 CSS클래스 `large-image` 이다.
@@ -194,7 +186,7 @@ p {
 }
 ```
 
-### Add Borders Around Your Elements
+## Add Borders Around Your Elements
 * CSS `border` (테두리)에는 `style`, `color`, `width` 같은 속성이 있다
 * 예를 들어 HTML 요소 주위에 빨간색 5픽셀 테두리를 만들려면 이 클래스를 사용 할 수 있다.
 ```css
@@ -206,7 +198,7 @@ p {
 ```
 
 
-### Add Rounded Corners with border-radius
+## Add Rounded Corners with border-radius
 * CSS의 `border-radius` 속성은 모서리를 둥글게 반올림 할 수 있다.
 * 픽셀로 설정 할 수 있다.
 
@@ -217,7 +209,7 @@ p {
 ```
 
 
-### Make Circular Images with a border-radius
+## Make Circular Images with a border-radius
 * `border-radius` 속성은 픽셀 외에 퍼센티지로 설정 할 수 있다.
 
 ```css 
@@ -227,7 +219,7 @@ p {
 ```
 
 
-### Give a Background Color to a div Element
+## Give a Background Color to a div Element
 * `background-color` 속성을 사용하여 요소의 배경색을 설정 할 수 있다.
 
 ```css
@@ -237,7 +229,7 @@ p {
 ```
 
 
-### Set the id of an Element
+## Set the id of an Element
 * Class 외에도 각 HTML요소에 `id` 속성이 있을 수 있다.
 * `id` 속성을 사용하면 단일 요소의 스타일을 지정 할 수 있으며, 나중에 JavaScript 를 사용하여 특정 요소를 선택하고 수정 할 수 있다.
 * `id` 속성은 고유 해야 한다. 브라우저는 이를 강제 하지 않지만, 널리 권장되는 모범 사례다.
@@ -246,7 +238,7 @@ p {
 <h2 id="cat-photo-app">
 ```
 
-### Use an id Attribute to Style an Element
+## Use an id Attribute to Style an Element
 * `id`에 적용하는 스타일은 재사용 할 수 없으며 한 요소에만 적용 해야 한다.
 * 그래서 클래스보다 높은 중요성이 `id`에 적용된다.
 * 클래스를 `.` 을 ID는 `#` 을 이름앞에 넣어서 참조한다. 
@@ -257,19 +249,19 @@ p {
 }
 ```
 
-### Adjust the Padding of an Element 
+## Adjust the Padding of an Element 
 * HTML 요소는 기본적으로 작은 사각형이다.
 * HTML 요소를 둘러싸는 공간을 제어 하는 중요한 세 가지 속성은 `padding`, `margin`, `border` 이다.
 * `padding`은 요소의 내용과 요소의 `border` 사이의 공간을 제어한다.
 
-### Adjust the Margin of an Element 
+## Adjust the Margin of an Element 
 * 요소의 `margin`은 요소의 `border`와 주변 요소 사이의 간격을 제어한다
 
 
-### Add a Negative Margin to an Element 
+## Add a Negative Margin to an Element 
 * 요소의 `margin` 을 음수 값으로 설정하면 요소가 커진다.
 
-### Add Different Padding to Each Side of an Element
+## Add Different Padding to Each Side of an Element
 * `padding`을 각 측면에 다른 양을 갖도록 정의 할 수 있다.
 * 예를 들면 다음과 같이 설정 할 수 있다.
 ```css
@@ -282,7 +274,7 @@ p {
 
 ```
 
-### Add Different Margin to Each Side of an Element
+## Add Different Margin to Each Side of an Element
 * 요소의 `margin` 도 각 측면에서 다른 값을 갖도로 정의 할 수 있다.
 * 예를 들면 다음과 같이 설정 할 수 있다.
 ```css
@@ -294,19 +286,19 @@ p {
 }
 ```
 
-### Use Clockwise Notation to Specify the Padding of an Element
+## Use Clockwise Notation to Specify the Padding of an Element
 * `padding-top`, `padding-right`, `padding-bottom`, `padding-left`를 시계방향으로 한줄에 모두 지정 할 수 있다.
 ```css
 padding: 10px 20px 10px 20px;
 ```
 
-### Use Clockwise Notation to Specify the margin of an Element 
+## Use Clockwise Notation to Specify the margin of an Element 
 * `margin-top`, `margin-right`, `margin-bottom`, `margin-left`도 시계방향으로 한줄에 모두 지정 할 수 있다.
 ```css
 margin: 20px 40px 20px 40px;
 ```
 
-### Use Attribute Selectors to Style Elements
+## Use Attribute Selectors to Style Elements
 * `id` 및 `class` selector 외에 `[attr=value]` attribute selector 를 사용해서 스타일을 지정할 요소 그룹을 선택 할 수 있다.
 ```css
 [type='radio'] {
@@ -314,7 +306,7 @@ margin: 20px 40px 20px 40px;
 }
 ```
 
-### Understand Absoulte versus Relative Units
+## Understand Absoulte versus Relative Units
 * 지난 과제에서는 요소의 `padding`과 `margin`을 모두 `px`(픽셀)로 설정하고 있다.
 * `px`(픽셀)은 길이 단위의 한 유형으로, 브라우저에 항목 크기 또는 간격을 지정하는 방법을 알려준다.
 * CSS에는 `px`(픽셀) 외에도 사용 할 수 있는 다양한 길이 단위 옵션이 있다.
@@ -324,7 +316,7 @@ margin: 20px 40px 20px 40px;
 
 > 뷰포트의 크기에 연결된 여러 상대적 단위 옵션은, `Responsive Web Design` 에서 다룹니다.
 
-### Style the HTML Body Element
+## Style the HTML Body Element
 * 이제 새롭게 CSS상속에 대해 알아보자
 * 모든 HTML페이지에는 `body` 요소가 있고, 이는 `background-color` 속성을 주면 색을 띠는 것으로 증명 할 수 있다.
 ```css
@@ -333,7 +325,7 @@ body {
 }
 ```
 
-### Inherit Styles from the Body Element
+## Inherit Styles from the Body Element
 * 다른 HTML 요소와 마찬가지로 `body` 요소에 스타일을 지정 할 수 있다.
 * 다른 모든 요소는 `body` 요소의 스타일을 상속한다.
 ```css
@@ -351,7 +343,7 @@ body {
 ```
 
 
-### Prioritize One Style Over Another
+## Prioritize One Style Over Another
 * 때로는 HTML 요소가 서로 충돌하는 여러 스타일을 수신 할 수 있다.
 * 예를 들어 `h1` 요소는 동시에 녹색과 분홍색이 될 수 없다.
 * 텍스트를 분홍색으로 만드는 클래스를 만든 다음 `h1` 요소에 적용하면 클래스가 `body`요소에서 상속 받은 `color: green;` 요소를 재정의 한다.
@@ -373,7 +365,7 @@ body {
 ```
 
 
-### Override Styles in Subsequent CSS 
+## Override Styles in Subsequent CSS 
 * `pink-text` 클래스는 `body` 요소의 CSS 선언을 무시한다.
 * `h1` 요소에 `pink-text` 클래스와 `blue-text` 클래스를 모두 적용하면?
 
@@ -400,7 +392,7 @@ body {
 ```
 
 
-### Override Class Declarations by Styling ID Attributes
+## Override Class Declarations by Styling ID Attributes
 * 브라우저는 선언 순서대로 CSS를 위에서 아래로 읽는다.
 * 즉, 충돌이 발생하면 브라우저는 마지막에 온 CSS 선언을 사용한다 
 * 그런데, 요소에 id를 부여하면 id에 대한 스타일링이 우선시 된다 
@@ -427,7 +419,7 @@ body {
 </h1>
 ```
 
-### Override Class Declarations with Inline Styles
+## Override Class Declarations with Inline Styles
 * Class 보다 Id에 대한 스타일링이 우선시 된다.
 * 그리고, Id 보다는 inline 스타일링이 우선시 된다.
 ```css
@@ -452,7 +444,7 @@ body {
 </h1>
 ```
 
-### Override All Other Styles by using Important
+## Override All Other Styles by using Important
 * inline 스타일이 `style`의 모든 CSS 선언을 재정의 한다
 * 하지만 가장 강력한 방법은 `!importatn` 이다
 ```css
@@ -478,7 +470,7 @@ color: orange;
 </h1>
 ```
 
-### Use Hex Code for Specific Colors
+## Use Hex Code for Specific Colors
 * CSS에서 색상을 표현하는 방법으로 16진수 코드를 사용한다.
 * 예를들어 `#000000` 은 검은색이다.
 ```css
@@ -487,14 +479,14 @@ body {
 }
 ```
 
-### Use Hex Code to Mix Colors 
+## Use Hex Code to Mix Colors 
 * 16진 코드는 6개의 16진 숫자를 사용하여 각각 2개의 빨강(R). 녹색(G), 파랑(B)의 구성요소로 색상을 나타낸다.
 * 이 세 가지 순수한 색상(빨강, 녹색, 파랑)은 각각의 양을 변화 시켜서 1600만개 이상의 다른 색상을 만들 수 있다.
 * 예를들어, 주황색은 순수한 빨강이며, 녹색과 섞여 있고 파랑은 없다. 16진수로는 `#ffa500`
 * 숫자 `0`은 16진 코드에서 가장 낮은 숫자이며 색상이 완전히 없음을 나타낸다.
 * 숫자 `f`는 16진 코드에서 가장 높은 숫자이며 가능한 최대 밝기를 나타낸다.
 
-### Use Abbreviated Hex Codes
+## Use Abbreviated Hex Codes
 * 1600만 가지의 넘는 색상의 16진 코드를 기억하기는 어렵다.
 * 16진코드는 단축 할 수 있다.
 * 빨간색 #FF0000 은 #F00으로 단축 된다.
@@ -508,7 +500,7 @@ Green| #0f0
 Red  | #f00 
 Fuchsia | #f0f
 
-### Use RGB values to Color Elements
+## Use RGB values to Color Elements
 * CSS에서 색상을 표현할 수 있는 또 다른 방법은 `RGB` 값을 사용 하는 것이다.
 * 검은색은 `rgb(0, 0, 0)` 이다.
 * 흰색은 `rgb(255, 255, 255)` 이다.
@@ -517,7 +509,7 @@ Fuchsia | #f0f
 * 따라서 `RGB`와 16진 코드는 정확히 같은 수의 색상을 나타낸다.
 
 
-### Use RGB to Mix Colors 
+## Use RGB to Mix Colors 
 * 16진 코드와 마찬가지로 서로 다른 값을 조합하여 RGB로 색상을 혼합할 수 있다.
 
 Color | RGB
@@ -527,7 +519,7 @@ Red | rgb(255, 0, 0)
 Orchid | rgb(218, 112, 214)
 Sienna | rgb(160, 82, 45)
 
-### Use CSS Variable to change several elements at once
+## Use CSS Variable to change several elements at once
 * CSS 변수는 하나의 값만 변경하여 여러 CSS 스타일 속성을 한번에 변경하는 강력한 방법이다.
 
 ```css
@@ -729,19 +721,19 @@ Sienna | rgb(160, 82, 45)
 </div>
 ```
 
-### Create a custom CSS Variable
+## Create a custom CSS Variable
 * CSS 변수를 만들려면 앞에 두 개의 하이픈이 있는 이름으로 지정하고 값을 지정하면 된다.
 ```css
 --penguin-skin: gray;
 ```
 
-### CSS Use a custom CSS Variable
+## CSS Use a custom CSS Variable
 * 변수를 만든 후에는 지정한 이름을 참조하여 다른 CSS 속성에 해당 값을 할당 할 수 있다.
 ```css
 background: var(--penguin-skin);
 ```
 
-### Attach a Fallback value to a CSS Variable
+## Attach a Fallback value to a CSS Variable
 * 지정된 변수가 유효하지 않은 경우 브라우저에서 되돌릴 fallback 값을 설정 할 수 있다.
 
 > 이 방법은 브라우저 호환성을 높이는 데 사용되지 않으며 IE 브라우저에서는 작동하지 않는다.
@@ -751,7 +743,7 @@ background: var(--penguin-skin, black);
 ```
 
 
-### Improve Compatibility with Browser Fallbacks
+## Improve Compatibility with Browser Fallbacks
 * CSS로 작업 할 때 브라우저 호환성 문제가 발생 할 수 있다. 잠재적인 문제를 피하기 위해 브라우저 fallback 을 제공하는 것이 중요하다.
 * 브라우저가 웹 페이지의 CSS를 구문 분석할 때 인식하지 않거나 지원하지 않는 속성은 무시한다.
 * 예를 들어 CSS변수를 사용하여 사이트에 배경색을 지정하면 Internet Explorer는 CSS변수를 지원하지 않으므로 배경색을 무시한다. 이 경우 브라우저는 해당 속성에 대한 값을 사용하고 다른 값을 찾을 수 없으면 기본값으로 되돌린다.
@@ -773,7 +765,7 @@ background: var(--penguin-skin, black);
 <div class="red-box"></div>
 ```
 
-### Inherit CSS Variables
+## Inherit CSS Variables
 * 변수를 작성 할 때 변수를 작성하는 선택기에서 사용 할 수 있고, 해당 선택기의 모든 하위항목에서도 사용 할 수 있다.
 * 이는 일반적인 속성과 마찬가지로 CSS변수가 상속되기 때문에 발생한다.
 * 상속을 사용하기 위해 CSS변수는 종종 :root 요소에 정의된다.
@@ -785,7 +777,7 @@ background: var(--penguin-skin, black);
 }
 ```
 
-### Change a variable for a specific area
+## Change a variable for a specific area
 * `:root`에 변수를 만들면 전체 페이지에 해당 변수의 값이 설정된다.
 * 그런 다음 특정 요소내에서 변수를 다시 설정하면 덮어 쓸 수 있다.
 
@@ -802,7 +794,7 @@ background: var(--penguin-skin, black);
 ```
 
 
-### Use a media query to chagne a variable
+## Use a media query to chagne a variable
 * CSS 변수는 미디어 쿼리 사용 방법을 단순화 할 수 있다.
 * 예를 들어, 화면이 미디어 쿼리 중단 점보다 작거나 큰 경우 변수 값을 변경 할 수 있으며 사용되는 우치에 따라 해당 스타일이 적용된다.
 
