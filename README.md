@@ -1,8 +1,8 @@
 # Study
 
 ## To do 
-- [] freeCodeCamp
-- [] javascript30 
+- [ ] freeCodeCamp
+- [ ] javascript30 
 
 # Reference
 * [freeCodeCamp](https://www.freecodecamp.org/)
