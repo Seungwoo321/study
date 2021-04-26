@@ -1,3 +1,33 @@
+function solution (N) {
+    const binary = N.toString(2).split('');
+    let count = 0;
+    let result = 0;
+    binary.forEach(n => {
+        if (n === '1') {
+            result = Math.max(count, result);
+            count = 0;
+        } else {
+            count += 1;
+        }
+    })
+    return result;
+}
+
+
+function solution(N) {
+    const binary = N.toString(2).split('1');
+    binary.pop();
+    return Math.max.apply(null, binary.map(str => str.length));
+}
+
+console.log(solution(9)) // 2
+console.log(solution(529)) // 4
+console.log(solution(20)) // 1
+console.log(solution(15)) // 0 
+console.log(solution(32)) // 0
+console.log(solution(1041)) // 5
+
+
 /**
 
 
@@ -18,34 +48,3 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..2,147,483,647].
 
 */
-
-// function solution (N) {
-//     const binary = N.toString(2).split('')
-//     let count = 0
-//     let result = 0
-//     binary.forEach(n => {
-//         if (n === '1') {
-//             result = Math.max(count, result)
-//             count = 0
-//         } else {
-//             count += 1;
-//         }
-//     })
-//     return result
-// }
-
-
-function solution(N) {
-    const binary = N.toString(2).split('1');
-    binary.pop();
-    return Math.max.apply(null, binary.map(str => str.length));
-}
-
-console.log(solution(9)) // 2
-console.log(solution(529)) // 4
-console.log(solution(20)) // 1
-console.log(solution(15)) // 0 
-console.log(solution(32)) // 0
-console.log(solution(1041)) // 5
-
-
