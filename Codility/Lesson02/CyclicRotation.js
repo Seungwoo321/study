@@ -1,12 +1,11 @@
 
 function solution (A, K) {
-    if (A.length - 1 === K) {
+    if (A.length === K) {
         return A
     } else {
-        ``
+        const left = A.splice(K -1, A.length -1)
+        return left.concat(A)
     }
-
-
 }
 
 console.log(solution([3, 8, 9, 7, 6], 3)) // [9, 7, 6, 3, 8]
