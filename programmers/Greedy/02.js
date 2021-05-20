@@ -11,17 +11,55 @@
 
 function solution(name) {
 
-    return [...name].reduce((acc, cur, i) => {
-        let num = cur.charCodeAt()
-        if (cur === "A" && name[i + 1] && name[i + 1] === "A") {
-            acc--
+    const arr = [...name]
+    let move = 0
+    let current = 0
+    let i = 0
+    let back = false
+    while (arr.length) {
+        const num = arr.shift().charCodeAt()
+
+        if (num !== 65) {
+            move += Math.min(Math.abs(num - 91), Math.abs(num - 65))
+        
+            if (i - current > current + 1 + name.length - i) {
+                // move += current + 1
+                // arr.reverse()
+                // i = - current
+                // console.log(i)
+                // current = name.length - i
+            } else {
+                console.log(Math.min(Math.abs(i - current)))
+                move += Math.min(Math.abs(i - current))
+            }
+            current = i
         }
-        if (i > 0 && i < name.length) acc++
-        acc += num > 78 ? 91 - num : num - 65
-        return acc
-    }, 0)
+        i++
+    }
+    return move
 }
 
-console.log(solution("JEROEN")) // 56
-console.log(solution("JAN")) // 23
-console.log(solution("JAAAAAAAN")) // 23
+// console.log(solution("JEROEN")) // 56
+// console.log(solution("JAN")) // 23  
+// console.log(solution("JAAAAAAAN")) // 23
+// console.log(solution("AAAA")) // 0
+// console.log(solution("ABAAAAAAABA")) // 6
+// console.log(solution("AAB")) // 2
+// console.log(solution("ZZZ")) // 5
+// console.log(solution("BBBAAAB")) // 9
+// console.log(solution("ABABAAAAAB")) // 10
+// console.log(solution("ABABAAAAABA")) // 11
+// console.log(solution("BBBBAAAAAB")) // 12
+// console.log(solution("BBBBAAAABA")) // 13
+
+// console.log(solution("BBBAAB")) // 7 // 9
+// console.log(solution("BBAABAAAAB")) // 9 // 13
+// 
+// console.log(solution("ABAAAAABAB")) // 8
+// 2 3 3 
+// console.log(solution("BABAAAAB")) // 7
+// console.log(solution("JAJAAAJ")) // 31
+
+
+console.log(solution("AABAAAAAAABBB")) // 10
+console.log(solution("CANAAAAANAN")) // 48
