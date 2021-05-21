@@ -16,7 +16,7 @@ function solution(name) {
     let move = 0
     let position = 0
     let orders = []
-    let c = arr[index]
+
     while (orders.length < arr.filter(s => s !== "A").length) {
         let c = arr[position]
         let num = c.charCodeAt()
@@ -24,23 +24,24 @@ function solution(name) {
         let left = 1
 
         move += Math.min(Math.abs(num - 91), Math.abs(num - 65))
-
+        right = arr.findIndex((s, i) => s !== "A" && index < i)
+        console.log(arr[right])
         if (c !== "A") {
             orders.push(c)
             move += Math.min(right, left)
             position++
         } else {
-            right = arr.findIndex((s, i) => s !== "A" && index < i) - index
-            left = arr.slice().reverse().findIndex((s, i) => s !== "A" && index - 1 < i) + 1 + index
+            left = arr.slice().reverse().findIndex((s, i) => s !== "A" && index - 1 < i)
 
-            if (left < right) {
-                const leftArray = arr.slice(0, position + 1)
-                const rightArray = arr.slice(position + 1, arr.length)
-                arr = rightArray.concat(leftArray)
-                arr.reverse()
-            }
+            // if (left < right) {
+            //     const leftArray = arr.slice(0, position + 1)
+            //     const rightArray = arr.slice(position + 1, arr.length)
+            //     arr = rightArray.concat(leftArray)
+            //     arr.reverse()
+            // }
             position = Math.min(right, left)
         }
+        if (index === 0) break
         index ++
     }
     console.log(orders)
