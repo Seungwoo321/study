@@ -11,36 +11,44 @@
 
 function solution(name) {
 
-    const arr = [...name]
+    let arr = [...name]
+    let index = 0
     let move = 0
-    let current = 0
-    let i = 0
-    let back = false
-    while (arr.length) {
-        const num = arr.shift().charCodeAt()
+    let position = 0
+    let orders = []
+    let c = arr[index]
+    while (orders.length < arr.filter(s => s !== "A").length) {
+        let c = arr[position]
+        let num = c.charCodeAt()
+        let right = 1
+        let left = 1
 
-        if (num !== 65) {
-            move += Math.min(Math.abs(num - 91), Math.abs(num - 65))
-        
-            if (i - current > current + 1 + name.length - i) {
-                // move += current + 1
-                // arr.reverse()
-                // i = - current
-                // console.log(i)
-                // current = name.length - i
-            } else {
-                console.log(Math.min(Math.abs(i - current)))
-                move += Math.min(Math.abs(i - current))
+        move += Math.min(Math.abs(num - 91), Math.abs(num - 65))
+
+        if (c !== "A") {
+            orders.push(c)
+            move += Math.min(right, left)
+            position++
+        } else {
+            right = arr.findIndex((s, i) => s !== "A" && index < i) - index
+            left = arr.slice().reverse().findIndex((s, i) => s !== "A" && index - 1 < i) + 1 + index
+
+            if (left < right) {
+                const leftArray = arr.slice(0, position + 1)
+                const rightArray = arr.slice(position + 1, arr.length)
+                arr = rightArray.concat(leftArray)
+                arr.reverse()
             }
-            current = i
+            position = Math.min(right, left)
         }
-        i++
+        index ++
     }
+    console.log(orders)
     return move
 }
 
 // console.log(solution("JEROEN")) // 56
-// console.log(solution("JAN")) // 23  
+console.log(solution("JAN")) // 23  
 // console.log(solution("JAAAAAAAN")) // 23
 // console.log(solution("AAAA")) // 0
 // console.log(solution("ABAAAAAAABA")) // 6
@@ -51,15 +59,12 @@ function solution(name) {
 // console.log(solution("ABABAAAAABA")) // 11
 // console.log(solution("BBBBAAAAAB")) // 12
 // console.log(solution("BBBBAAAABA")) // 13
+// console.log(solution("BBBAAB")) // 9
 
-// console.log(solution("BBBAAB")) // 7 // 9
-// console.log(solution("BBAABAAAAB")) // 9 // 13
-// 
+// console.log(solution("BBAABAAAAB")) // 13
+
 // console.log(solution("ABAAAAABAB")) // 8
-// 2 3 3 
-// console.log(solution("BABAAAAB")) // 7
-// console.log(solution("JAJAAAJ")) // 31
-
-
-console.log(solution("AABAAAAAAABBB")) // 10
-console.log(solution("CANAAAAANAN")) // 48
+// console.log(solution("BABAAAAB")) // 8
+// console.log(solution("JAJAAAJ")) // 32
+// console.log(solution("AABAAAAAAABBB")) // 11
+// console.log(solution("CANAAAAANAN")) // 48
