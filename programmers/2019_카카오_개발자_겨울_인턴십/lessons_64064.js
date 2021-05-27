@@ -32,25 +32,40 @@
 
 function solution(userId, bannedId) {
 
+    // const doConcat = (arr, i, data) => {
+    //     data = arr[i].reduce((acc, cur) => acc.concat(data.map(subArr => cur.concat(subArr))), [])
+    //     if (i < arr.length - 1) {
+    //         return doConcat(arr, i + 1, data)
+    //     } else {
+    //         return data
+    //     }
+    // }
     const doConcat = (arr, i, data) => {
-        const newData = data.reduce((accumulator, currentValue) => accumulator.concat(arr[i].map(v => currentValue.includes(v[0]) ? [] : v.concat(currentValue)).filter(v => v.length)), [])
-        if (i < arr.length - 1) {
-            return doConcat(arr, i + 1, newData)
+        data = arr[i].reduce((acc, cur) => {
+            acc[cur] = {}
+        }, data)
+        if (i < 1) {
+            return doConcat(arr, i + 1, data)
         } else {
-            return newData
+            return data
         }
+        // if (i < arr.length - 1) {
+        // if (i < 2) {
+        //     return doConcat(arr, i + 1, data)
+        // } else {
+        //     return data
+        // }
     }
-
     const arr = bannedId.map(bannedUser => userId.filter(user => (new RegExp(bannedUser.replace(/\*/g, '.'))).test(user) && user.length === bannedUser.length).map(id => id))
-    console.log(arr)
+    // console.log(arr)
     let answer = arr[0]
-
-    // return doConcat(arr, 1, answer).length
+    const data = {}
+    return doConcat(arr, 0, data)
 }
 
 
 
 // console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "abc1**"])) // 2 //
-// console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******"])) // 3
-console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******", "******"])) // 3
+console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******"])) // 3
+// console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******", "******"])) // 3
 // console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo"])) // 3
