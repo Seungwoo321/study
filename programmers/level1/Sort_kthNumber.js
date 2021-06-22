@@ -3,10 +3,3 @@ function solution(array, commands) {
 }
 
 console.log(solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]])) // [5, 6, 3]
-
-// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort 
-
-/**
-토르코 , 탈퇴한 사용자 , ChoWonmin , - , 박지현 외 132 명 풀이의 유사한 풀이 모두 보기 7페이지 아래 
-
-*/
