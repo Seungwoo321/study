@@ -6,19 +6,26 @@
 
 function solution(answers) {
     const patterns = [
-        [1, [1, 2, 3, 4, 5]],
-        [2, [2, 1, 2, 3, 2, 4, 2, 5]],
-        [3, [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]]
+        [1, 2, 3, 4, 5],
+        [2, 1, 2, 3, 2, 4, 2, 5],
+        [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     ];
-    return patterns.reduce((accumulator, currentValue) => {
-        answers.filter((v, i) => {
-            console.log(i > currentValue[1].length ? i % currentValue[1].length : i)
-            // console.log(i > currentValue[1].length ? currentValue[1].length % i : i)
-            return currentValue[1][i > currentValue[1].length ? i % currentValue[1].length : i] === v
-        })
-        // accumulator.push([currentValue[0], answers.filter((v, i) => currentValue[1][i > currentValue[1].length ? currentValue[1].length % i : i] === v).length]);
-        return accumulator;
-    }, []).sort((a, b) => a[0] - b[0]) // .filter(v => v[1]).map(v => v[0]);
+    const record = [
+        [], [], []
+    ];
+
+    answers.forEach((value, index) => {
+        if (patterns[0][index % patterns[0].length] === value) {
+            record[0].push(value);
+        }
+        if (patterns[1][index % patterns[1].length] === value) {
+            record[1].push(value);
+        }
+        if (patterns[2][index % patterns[2].length] === value) {
+            record[2].push(value);
+        }
+    })
+    console.log(record)
 }
 
 // console.log(solution([1, 2, 3, 4, 5])) // [1]
