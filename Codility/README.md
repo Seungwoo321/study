@@ -15,11 +15,11 @@
 ## Lesson 4 Counting Elements
 - [x] FrogRiverOne
 - [x] MaxCounters
-- [ ] MissingInteger
-- [ ] PermCheck
+- [x] MissingInteger
+- [x] PermCheck
 
 ## Lesson 5 Prefix Sums 
-- [ ] CountDiv
+- [x] CountDiv
 - [ ] GenomicRangeQuery
 - [ ] MinAvgTwoSlice
 - [ ] PassingCars
